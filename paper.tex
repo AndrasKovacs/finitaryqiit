@@ -141,9 +141,9 @@ identity proofs, hence we use the term QIIT instead of higher
 inductive-inductive type. An example of a QIIT is the well-typed
 (intrinsic) syntax of type theory quotiented by conversion. In this
 paper first we specify finitary QIITs using a domain-specific type
-theory which we call the theory of signatures. The internal syntax of
-the theory of signatures is given by a QIIT as well. Then, using this
-internal syntax we show that all specified QIITs exist and they have a
+theory which we call the theory of signatures. The syntax of the
+theory of signatures is given by a QIIT as well. Then, using this
+syntax we show that all specified QIITs exist and they have a
 dependent elimination principle. We also show that algebras of a
 signature form a category with families (CwF) and use the internal
 language of this CwF to show that dependent elimination is equivalent
@@ -175,7 +175,7 @@ to initiality.
 
 %% Keywords
 %% comma separated list
-\keywords{homotopy type theory, inductive-inductive types, higher inductive types, quotient inductive types, logical relations}  %% \keywords are mandatory in final camera-ready submission
+\keywords{homotopy type theory, inductive-inductive types, higher inductive types, quotient inductive types, logical relations, category with families, generalised algebraic theory}  %% \keywords are mandatory in final camera-ready submission
 
 %% \maketitle
 %% Note: \maketitle command must come after title commands, author
@@ -281,13 +281,9 @@ paper, we illustrate our method for deriving the above notions by
 three examples. We start with a closed type which has a recursive
 constructor, the natural numbers. Then we move on to a parameterised
 type with an equality constructor: the integers. Finally, we sketch
-how our method works for the above $\Con$-$\Ty$ example. % A more formal
-% discussion of the metatheory and signatures will follow in Section
-% \ref{sec:metatheory} and \ref{sec:signatures}.
-
-%% Our notationn
-%% for the metatheory is standard, but we summarise it in Section
-%% \ref{sec:metatheory}.
+how our method works for the above $\Con$-$\Ty$ example. Our notation
+below is standard, but we summarise it in Section
+\ref{sec:metatheory}.
 
 \subsection{Natural numbers}
 \label{sec:naturals}
@@ -415,8 +411,9 @@ t^\A\,\con_\Delta)$ so that we get something of type $N^D\,t$. The
 operation $\blank^\C$ is a generalisation of $\con$; as we will see
 later, $\con$ is defined in terms of $\blank^\C$. The usage of
 $t^\C\,\id$ corresponds to the identity extension lemma
-\cite{atkey}. The computation rule for zero is strict, but the case
-for successor requires using $\J$ on $x^\C\,\id$.
+\cite{atkey}. The computation rule for zero is definitional (can be
+proved by $\refl$), but the case for successor requires using $\J$ on
+$x^\C\,\id$.
 
 \subsection{Integers}
 \label{sec:integers}
@@ -620,7 +617,7 @@ that of indexed container which specifies indexed inductive
 types. External schemes for inductive families are given in
 \cite{Dybjer97inductivefamilies,paulinmohring}, for
 inductive-recursive types in \cite{dybjer00ir}. Inductive-inductive
-types were introduced by Forsberg together with an internal coding
+types were introduced by Nordvall Forsberg together with an internal coding
 scheme \cite{forsberg-phd}. A symmetric scheme for both inductive and
 coinductive types is given in \cite{henning}.
 
@@ -634,11 +631,20 @@ equalities. \cite{niels} define an external syntactic scheme for
 higher inductive types with only 0-constructors and compute the types
 of elimination principles. In \cite{nielsmsc} a semantics is given for
 the same class of HITs but with no recursive equality
+<<<<<<< HEAD
 constructors. Sojakova \cite{sojakova} defines a subset of HITs called
 W-suspensions by an internal coding scheme similar to W-types. She
 proves that the induction principle is equivalent to homotopy
 initiality. Dybjer and Moeneclaey define a syntactic scheme for some
 HITs and show their existence in a groupoid model
+=======
+constructors. Sojakova \cite{sojakova} defines a subset of HITs
+called W-suspensions by an internal coding scheme similar to
+W-types. She proves that the induction principle is equivalent to
+homotopy initiality. Dybjer and Moeneclaey define a syntactic scheme
+for some HITs
+and show their existence in a groupoid model
+>>>>>>> f5cdfa81df14cf09cc1d8e4327cb93f86e2f2801
 \cite{moeneclaey}. In \cite{AwodeyFS18}, impredicative encodings of a
 class of higher inductive types are presented, and we think that this
 approach could also be modelled within our framework once we assume an
@@ -669,22 +675,22 @@ displayed categories.
 
 Our metatheory is Martin-L{\"o}f type theory with functional
 extensionality and uniqueness of identity proofs (UIP). In this
-section we describe the notation in this paper and the accompanying
+section we describe the notation used in this paper and the accompanying
 Agda formalisation.
 
 Definitional equality is denoted by $\equiv$. We have a cumulative
 hierarchy of Russell-style universes $\Set_i$ where we usually omit
-indices. Dependent function space is denoted $(\alpha:T)\ra T'$. $T\ra
-T'$ stands for $(\alpha:T)\ra T'$ if $T'$ does not depend on
-$\alpha$. We use $(\alpha:T)(\alpha': T')\ra T''$ as a shorthand for
-iterated function spaces. We sometimes omit certain arguments of
-functions or write them in subscript to lighten the notation.
-$\Sigma$ types are denoted by $(\alpha:T)\times T'$ with
-left-associative $\times$. The constructor is $(\blank,\blank)$ and
-the eliminators are written $\proj_1$ and $\proj_2$. The one-element
-type $\top$ has constructor $\tt$. We have the identity type $=$ with
-constructor $\refl$, eliminator $\J$. The notation is
-$\J_{x.z.P}\,pr\,e:P[x\mapsto\alpha',z\mapsto e]$ for
+indices (we don't assume any impredicativity). Dependent function
+space is denoted $(\alpha:T)\ra T'$. $T\ra T'$ stands for
+$(\alpha:T)\ra T'$ if $T'$ does not depend on $\alpha$. We use
+$(\alpha:T)(\alpha': T')\ra T''$ as a shorthand for iterated function
+spaces. We sometimes omit certain arguments of functions or write them
+in subscript to lighten the notation.  $\Sigma$ types are denoted by
+$(\alpha:T)\times T'$ with left-associative $\times$. The constructor
+is $(\blank,\blank)$ and the eliminators are written $\proj_1$ and
+$\proj_2$. The one-element type $\top$ has constructor $\tt$. We have
+the identity type $=$ with constructor $\refl$, eliminator $\J$. The
+notation is $\J_{x.z.P}\,pr\,e:P[x\mapsto\alpha',z\mapsto e]$ for
 $\alpha,\alpha':T$ and $x:T, z:\alpha=x \vdash P:\Set$ and
 $pr:P[x\mapsto \alpha,z\mapsto\refl]$ and $e :\alpha=\alpha'$. We
 write $\tr_P\,e\,u: P\,\alpha'$ for transport of $u : P\,\alpha$ along
@@ -693,9 +699,9 @@ also have coercion $\coe\,e\,\alpha:T'$ whenever $e:T=T'$ and the
 inverse $e^{-1}:\alpha'=\alpha$ for $e:\alpha=\alpha'$.
 
 In this paper we use the notation of extensional type theory, that is,
-after proving an an equality $p : \alpha=\alpha'$, in later proofs
+after proving an equality $p : \alpha=\alpha'$, in later proofs
 depending on this equality we treat it as definitional, thus
-$\alpha\equiv\alpha'$ and $p \equiv refl$. This makes the notation
+$\alpha\equiv\alpha'$ and $p \equiv \refl$. This makes the notation
 much lighter, as transports disappear: $\tr\,p\,u\equiv u$ for any
 proof $p$. Although we use extensional notation, this can
 be translated to intensional type theory extended with functional
@@ -716,8 +722,8 @@ We denote the functional extensionality axiom by $\funext : (\alpha :
 A)\ra f\,\alpha = g\,\alpha \ra f = g$. We also use the term $\UIP$
 which has type $e = e'$ whenever $e,e':\alpha=\beta$. We write
 equational reasoning proofs by writing the proofs of equalities above
-the $=$ symbol, e.g. $u \overset{e}{=} u'$ when $e:\alpha = \alpha'$
-and $u:P\,\alpha$, $u':P\,\alpha'$.
+the $=$ symbol, e.g. $u \overset{e}{=} u'$ when $e:t = t'$ and
+$u\equiv f\,t$, $u'\equiv f\,t'$.
 
 We also assume the existence of one QIIT, namely the syntax of the
 type theory of signatures (Section \ref{sec:signatures}). In our
@@ -831,7 +837,7 @@ definitions below.
 We will denote variables by natural numbers, e.g. $3 :\equiv
 \vs\,(\vs\,(\vs\,\vz))$.
 
-As an example of using the susbtitution calculus, we prove the functor
+As an example of using the substitution calculus, we prove the functor
 laws for terms using equational reasoning.
 \begin{alignat*}{15}
   & [\id] && : && t[\id] &&                      && && \hspace{6em} [\circ] && : && t[\sigma\circ\delta] \\
@@ -1379,8 +1385,13 @@ reasoning about arbitrary CwF$^\K_{\Eq}$s.
 
 We start by defining $\Con$ as the type of $\mathbb{N}$-algebras,
 $\Ty$ as displayed $\mathbb{N}$-algebras, $\Tms$ as
+<<<<<<< HEAD
 $\mathbb{N}$-homomorphisms and $\Tm$ as displayed
 $\mathbb{N}$-algebra sections, using the same definitions as in section
+=======
+$\mathbb{N}$-homomorphisms and $\Tm$ as sections of displayed
+$\mathbb{N}$-algebras, using the same definitions as in section
+>>>>>>> f5cdfa81df14cf09cc1d8e4327cb93f86e2f2801
 \ref{sec:naturals}.
 
 An \textbf{empty context} corresponds to the terminal algebra.  For
@@ -1545,7 +1556,7 @@ node distance = 0pt,
              row sep= -\pgflinewidth,
              ]
 {
-             & $\blank^\A$   & $\blank^\D$    & $\blank^\M$  & $\blank^\D$  & $\cdot_{\blank}$ & $\rhd_{\blank}$ & ... & $\K_{\blank}$ & ${\K[]}_{\blank}$ & ... & $\Eq_{\blank}$  & ... & \hspace{2em} & $\blank^\C$ & $\blank^\R$ & $\blank^\E$ &  \\
+             & $\blank^\A$   & $\blank^\D$    & $\blank^\M$  & $\blank^\S$  & $\cdot_{\blank}$ & $\rhd_{\blank}$ & ... & $\K_{\blank}$ & ${\K[]}_{\blank}$ & ... & $\Eq_{\blank}$  & ... & \hspace{2em} & $\blank^\C$ & $\blank^\R$ & $\blank^\E$ &  \\
     $\Con$   &              &                &              &              &                 &                &     &         &     &      &  &  &    &   & & &     \\
     $\Ty$    &              &                &              &              &                 &                &     &         &     &      &  &  &    &   & & &     \\
     $\Tms$   &              &                &              &              &                 &                &     &         &     &      &  &  &    &   & & &     \\
