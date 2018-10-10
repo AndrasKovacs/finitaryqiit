@@ -381,8 +381,9 @@ The operation $\blank^\D$ is the unary logical predicate
 interpretation \cite{bernardy12parametricity}: a context $\Gamma$ is
 interpreted as a predicate $\Gamma^\D:\Gamma^\A\ra\Set$. A type
 $A:\Ty\,\Gamma$ becomes a predicate depending on a witness of
-$\Gamma^\D$, that is, $A^\D:\Gamma^\D\,\gamma\ra
-A^\A\,\gamma\ra\Set$. A term $t:\Tm\,\Gamma\,A$ is interpreted as
+$\Gamma^\D$, that is, $A^\D:\Gamma^\D\,\gamma\ra A^\A\,\gamma\ra\Set$,
+where we implicitly quantify over $\gamma$. A term
+$t:\Tm\,\Gamma\,A$ is interpreted as
 $t^\D:(\gamma^D:\Gamma^\D\,\gamma)\ra A^\D\,\gamma^D\,(t^\A\,\gamma)$.
 
 A section of a displayed algebra $(N^D,z^D,s^D)$ over $(N,z,s)$ is
@@ -1334,7 +1335,7 @@ family ($\Ty$ and $\Tm$). The rules are as follows:
 The above can be summarized by saying that there is a natural isomorphism
 between $\Tms\,\Gamma\,\Delta$ and $\Tm\,\Gamma\,(\K\,\Delta)$. An
 alternative definition is given by \emph{democratic} CwFs
-\cite{clairambault2014biequivalence}, and it was shown by
+\cite{clairambault2014biequivalence}, and it was shown in
 \cite{forsberg-phd} that the two definitions are interderivable.
 
 \textbf{Extensional equality} has a standard definition, although we omit $\refl$ for now.
@@ -1348,22 +1349,11 @@ alternative definition is given by \emph{democratic} CwFs
 \label{sec:cwfalg}
 
 Previously given operations on the theory of signatures yield a
-fragment of a full CwF$^\K_{\Eq}$ model; we summarize this below:
-
-\vspace{1em}
-\begin{tabular}{l l}
-  $\blank^\A$ & \hspace{1em}$\Con$ \\
-  $\blank^\D$ & \hspace{1em}$\Ty$  \\
-  $\blank^\M$ & \hspace{1em}$\Tms$ \\
-  $\blank^\S$ & \hspace{1em}$\Tm$
-\end{tabular}
-\vspace{1em}
-
-Algebras become the objects of a CwF$^\K_{\Eq}$, homomorphisms become
-the morphisms, and displayed algebras and sections together yield
-families. However, there are numerous other components in a
-CwF$^\K_{\Eq}$ which we will consider in Section \ref{sec:cwfmodel},
-where we construct the model.
+fragment of a full CwF$^\K_{\Eq}$ model. Algebras become the objects
+of a CwF$^\K_{\Eq}$, homomorphisms become the morphisms, and displayed
+algebras and sections together yield families. However, there are
+numerous other components in a CwF$^\K_{\Eq}$ which we will consider
+in Section \ref{sec:cwfmodel}, where we construct the model.
 
 To provide some intuition about CwF$^\K_{\Eq}$s of algebras, we give
 here a tour of some of the definitions of components of the
@@ -1391,7 +1381,7 @@ homomorphisms. We omit the exact definitions here.
 \textbf{Context extension} is taking total algebras of displayed
 algebras. This is analogous to total categories of displayed
 categories \cite{displayedCategories}. More concretely, we construct
-the $\Sigma$ type of the carrier set $N$ and the family $N^D$, and
+the $\Sigma$-type of the carrier set $N$ and the family $N^D$, and
 glue together the algebra operators with their displayed counterparts.
 \begin{alignat*}{5}
   & \blank\rhd \blank : (\Gamma : \Con) \ra \Ty\,\Gamma \ra \Con \\
@@ -1464,10 +1454,12 @@ for this definition.
 \subsection{Equivalence of initiality and induction}
 \label{sec:initind}
 
-First, we define initiality and induction in an arbitrary CwF$^\K_{\Eq}$. Below, by $isContr$ we mean unique inhabitation.
+First, we define initiality and induction in an arbitrary CwF$^\K_{\Eq}$.
 \begin{alignat*}{5}
-  & Initial : \Con \ra \Set && \hspace{1.5em}Induction : \Con \ra \Set \\
-  & Initial\,\Gamma :\equiv (\Delta : \Con) \ra isContr\,(\Tms\,\Gamma\,\Delta) && \hspace{1.5em}Induction\,\Gamma :\equiv (A : \Ty\,\Gamma)\ra\Tm\,\Gamma\,A
+  & Initial : \Con \ra \Set \\
+  & Initial\,\Gamma :\equiv (\Delta : \Con) \ra (\sigma : \Tms\,\Gamma\,\Delta)\times((\delta : \Tms\,\Gamma\,\Delta)\ra\sigma=\delta) \\
+  & Induction : \Con \ra \Set \\
+  & Induction\,\Gamma :\equiv (A : \Ty\,\Gamma)\ra\Tm\,\Gamma\,A
 \end{alignat*}
 
 \textbf{Initiality implies induction}. Assume that $\Gamma : \Con$ and
@@ -1646,7 +1638,7 @@ In this section we follow the row-based approach and describe the rows
 of the model informally, while giving the full definition of the first
 4 rows ($\Con$, $\Ty$, $\Tms$, $\Tm$) and the rows for $\U$, $\El$ and
 $\Pi$ in Appendix \ref{sec:motives}. These are the most interesting
-parts of the construction. The rest of the construction is tedious but
+parts of the construction. The rest of the construction is tedious and
 not very enlightening. The first 4 columns are fully formalised in
 Agda and most parts of the category-columns from the CwF-columns are
 also formalised.
@@ -1660,8 +1652,8 @@ CwF$^\K_{\Eq}$s, and $\blank\rhd\blank$ is interpreted as the total
 CwF$^\K_{\Eq}$ of a displayed one. Previously we illustrated how the
 CwF of natural number algebras work in section
 \ref{sec:cwfalg}. Constructing the CwF of CwF$^\K_{\Eq}$s is an
-analogous, albeit much larger work. All in all, this part is a tedious
-although mostly mechanical exercise.
+analogous, albeit much larger work. All in all, this part is a mostly
+mechanical exercise.
 
 For the \textbf{universe} $\U$ we have to give a concrete displayed
 CwF$^\K_{\Eq}$, since $\U$ has type $\Ty\,\Gamma$, and we interpret
@@ -2315,7 +2307,7 @@ The interpretation of $\Pi\,a\,B:\Ty\,\Gamma$:
   & {\mk[]}_{\Pi\,a\,B}  && :\equiv {\mk[]}_B \\
   & \Eq_{\Pi\,a\,B}\,f^{S0}\,f^{S1}\,\alpha^D  && : \Eq_B\,(f^{S0}\,\alpha)\,(f^{S1}\,\alpha) \\
   & {\Eq[]}_{\Pi\,a\,B} && :\equiv {\Eq[]}_B \\
-  & \eqreflect_{\Pi\,a\,B}\,f^S && :\equiv \funext\,\lambda\alpha.\eqreflect_B\,(f^S\,\alpha)
+  & \eqreflect_{\Pi\,a\,B}\,f^S && :\equiv \funext\,(\lambda\alpha.\,\eqreflect_B\,(f^S\,\alpha))
 \end{alignat*}
 }
 
