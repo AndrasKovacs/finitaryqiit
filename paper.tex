@@ -144,10 +144,10 @@ paper first we specify finitary QIITs using a domain-specific type
 theory which we call the theory of signatures. The internal syntax of
 the theory of signatures is given by a QIIT as well. Then, using this
 internal syntax we show that all specified QIITs exist and they have a
-dependent elimination principle. We also show that algebras of
-a signature form a category with families (CwF) and use the internal
-language of this CwF to show that dependent elimination is
-equivalent to initiality.
+dependent elimination principle. We also show that algebras of a
+signature form a category with families (CwF) and use the internal
+language of this CwF to show that dependent elimination is equivalent
+to initiality.
 \end{abstract}
 
 
@@ -511,7 +511,7 @@ type $\mathit{Con}$, the other takes a $\mathit{Con}$-term as an input
 and outputs the type of terms of type $\mathit{El}$ at the
 $\mathit{Con}$-term.
 \[
-\con_\Theta \equiv \big(\Tm\,\Phi\,(\El\,\mathit{Con}),\, \lambda t.\Tm\,\Phi\,(\El\,(\mathit{Ty}\app t)),\, \cdot,\, \lambda t\,r.\rhd\app t\app r,...\big):\Theta^\A
+\con_\Theta \equiv \big(\Tm\,\Theta\,(\El\,\mathit{Con}),\, \lambda t.\Tm\,\Theta\,(\El\,(\mathit{Ty}\app t)),\, \cdot,\, \lambda t\,r.\rhd\app t\app r,...\big):\Theta^\A
 \]
 An algebra homomorphism is given by a function between the
 $\mathit{Con}$ components and a function between the $\mathit{Ty}$
@@ -564,9 +564,9 @@ is equivalent to dependent elimination. We conclude in
 Section \ref{sec:conclusions}.
 
 In the following table we summarize the operations which we define in
-the Sections \ref{sec:algebras}--\ref{sec:eliminator}. $\Gamma$
-denotes a signature. The full definitions of these operations are
-given in Appendix \ref{sec:app}.
+Sections \ref{sec:algebras}--\ref{sec:eliminator}. $\Gamma$ denotes a
+signature. The full definitions of these operations are given in
+Appendix \ref{sec:app}.
 
 \bgroup
 \def\arraystretch{1.1}%  1 is the default, change whatever you need
@@ -634,12 +634,11 @@ equalities. \cite{niels} define an external syntactic scheme for
 higher inductive types with only 0-constructors and compute the types
 of elimination principles. In \cite{nielsmsc} a semantics is given for
 the same class of HITs but with no recursive equality
-constructors. Sojakova \cite{sojakova} defines a subset of HITs
-called W-suspensions by an internal coding scheme similar to
-W-types. She proves that the induction principle is equivalent to
-homotopy initiality. Dybjer and Moeneclaey define a syntactic scheme
-for a some HITs
-and show their existence in a groupoid model
+constructors. Sojakova \cite{sojakova} defines a subset of HITs called
+W-suspensions by an internal coding scheme similar to W-types. She
+proves that the induction principle is equivalent to homotopy
+initiality. Dybjer and Moeneclaey define a syntactic scheme for some
+HITs and show their existence in a groupoid model
 \cite{moeneclaey}. In \cite{AwodeyFS18}, impredicative encodings of a
 class of higher inductive types are presented, and we think that this
 approach could also be modelled within our framework once we assume an
@@ -651,7 +650,7 @@ models of type theory supporting higher inductive types
 parameters and characterise the class of models which have intial
 algebras for a cell monad with parameters. \cite{cubicalhits} develop
 semantics for several HITs (sphere, torus, suspensions, truncations,
-pushouts) in certain presheaf toposes, and extends the syntax of
+pushouts) in certain presheaf toposes, and extend the syntax of
 cubical type theory \cite{ctt} with these HITs.
 
 In \cite{altenkirch2018quotient} a
@@ -723,7 +722,7 @@ and $u:P\,\alpha$, $u':P\,\alpha'$.
 We also assume the existence of one QIIT, namely the syntax of the
 type theory of signatures (Section \ref{sec:signatures}). In our
 formalisation we postulate its constructors and dependent elimination
-principle adding the computation rules as rewrite rules. This QIIT has
+principle, adding the computation rules as rewrite rules. This QIIT has
 equality constructors for the substitution calculus (see the next
 section). In this paper, we treat these equalities as definitional (we
 don't write transports along them). Analogously, we add rewrite rules
@@ -1070,7 +1069,7 @@ The universe is interpreted by $\U^\C\,\nu\,a :\equiv
 \Tm\,\Omega\,(\El\,a)$ which results in the sorts being modelled by
 terms in the initial algebra. For $\El$, we coerce along the equality
 $a^\C\,\nu : \Tm\,\Omega\,(\El\,a) = a^\A\,(\Gamma^\C\,\nu)$, and thus
-$(\El\,a)^\A\,\nu\,t :\equiv \coe\,(a^\C\,\nu)\,t$. For $\Pi\,a\,B$
+$(\El\,a)^\C\,\nu\,t :\equiv \coe\,(a^\C\,\nu)\,t$. For $\Pi\,a\,B$
 types, we define a function which coerces the input along $a^\C$ and
 uses $B^\C$ to produce the result in the initial algebra:
 \[
@@ -1141,7 +1140,7 @@ relation interpretation, the right hand side is the one we use.
 For $\Pi$ types, we could use the usual interpretation, but we have a
 better choice. E.g. for the successor constructor of the natural
 numbers, the original formulation would give the condition
-$(n^{\mathit{0}}:Nat^{\mathit{1}})(n^{\mathit{1}}:Nat^{\mathit{1}})(n^{M}:Nat^M\,n^{\mathit{0}}
+$(n^{\mathit{0}}:Nat^{\mathit{0}})(n^{\mathit{1}}:Nat^{\mathit{1}})(n^{M}:Nat^M\,n^{\mathit{0}}
 = n^{\mathit{1}})\ra
 Nat^M\,(\mathit{suc}^{\mathit{0}}\,n^{\mathit{0}}) =
 \mathit{suc^{\mathit{1}}}\, n^{\mathit{1}}$. The right hand side
@@ -1151,9 +1150,9 @@ Nat^M\,(\mathit{suc}^{\mathit{1}}\,n^{\mathit{0}}) =
 \mathit{suc}^{\mathit{1}}\,(Nat^M\,n^{\mathit{0}})$. The price we have
 to pay is that interpreting application requires usage of $\J$.
 
-$\blank^\M$ is constant $\top$ on the identity type, homomorphisms
-don't state any condition between identity proofs in different
-algebras as we have UIP.
+$\blank^\M$ is constant $\top$ on the identity type; homomorphisms
+do not state any conditions between identity proofs in different
+algebras because of UIP.
 
 For the recursor, we fix a signature $\Omega$ and an algebra
 $\omega:\Omega^\A$. We write $\con$ for $\con_\Omega \equiv
@@ -1176,7 +1175,7 @@ and $\blank^\R$ commute.
 $\U^\R$ is given using the standard interpretation $\blank^\A$. Given
 $\nu:\Tms\,\Omega\,\Gamma$ and $a:\Tm\,\Omega\,\U$ we need something
 of type $(\alpha:a^\A\,\con)\ra a^\A\,\omega$. We know by $a^\C\,\id$
-that $a^\C\con = \Tm\,\Omega\,(\El\,a)$, so coercing $\alpha$ along
+that $\Tm\,\Omega\,(\El\,a)=a^\A\con$, so coercing $\alpha$ along
 this and applying the standard interpretation we get
 $(\coe\,({a^\C\,\id}^{-1})\,\alpha)^\A\,\omega : a^\A\,\omega$.
 
@@ -1283,11 +1282,11 @@ using the identity substitution:
 \section{The CwF$^\K_{\Eq}$ model of the theory of signatures}
 \label{sec:category}
 
-In the previous sections, we have given a part of the semantics of QIITs, in order to make precise notions of algebras and dependent elimination. However, much is still missing:
+In the previous sections, we have given a part of the semantics of QIITs, in order to make precise notions of algebras and induction. However, much is still missing:
 
 \begin{itemize}
 \item A \emph{category} of algebras and homomorphisms, with the assorted category operations and laws.
-\item A proof that the properties of being initial and having dependent elimination are equivalent.
+\item A proof that the properties of being initial and having induction are equivalent.
 \end{itemize}
 
 If we are aiming to get both, then having just a category of algebras
@@ -1380,8 +1379,8 @@ reasoning about arbitrary CwF$^\K_{\Eq}$s.
 
 We start by defining $\Con$ as the type of $\mathbb{N}$-algebras,
 $\Ty$ as displayed $\mathbb{N}$-algebras, $\Tms$ as
-$\mathbb{N}$-homomorphisms and $\Ty$ as displayed
-$\mathbb{N}$-algebras, using the same definitions as in section
+$\mathbb{N}$-homomorphisms and $\Tm$ as displayed
+$\mathbb{N}$-algebra sections, using the same definitions as in section
 \ref{sec:naturals}.
 
 An \textbf{empty context} corresponds to the terminal algebra.  For
@@ -1736,11 +1735,11 @@ extensionality.
 
 This concludes the CwF$^\K_{\Eq}$ model of the theory of
 signatures. Now, it follows that for each signature, there is a
-CwF$^\K_{\Eq}$ of algebras, and thus dependent elimination is
-equivalent to unique recursion by Section \ref{sec:initind}. Since for
-each signature we have constructed an algebra with elimination in
-Section \ref{sec:algebras} and Section \ref{sec:eliminator}, it follows
-that the constructed algebras are also initial.
+CwF$^\K_{\Eq}$ of algebras, and thus induction is equivalent to
+initiality by Section \ref{sec:initind}. Since for each signature we
+have constructed an algebra with induction in Section
+\ref{sec:algebras} and Section \ref{sec:eliminator}, it follows that
+the constructed algebras are also initial.
 
 
 %% %--------------------------------------------------------------------
@@ -2112,7 +2111,6 @@ The interpretation of $\Gamma:\Con$:
 The interpretation of $A:\Ty\,\Gamma$:
 {\footnotesize
 \begin{alignat*}{5}
-  & A && :\Ty\,\Gamma \\
   & A^\A && :\Gamma^\A\ra\Set \\
   & A^\D && :\Gamma^\D\,\gamma\ra A^\D\,\gamma\ra\Set \\
   & A^\M && :\Gamma^\M\,\gamma\,\gamma'\ra A^\A\,\gamma\ra A^\A\,\gamma'\ra\Set \\
