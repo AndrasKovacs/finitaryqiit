@@ -1,0 +1,331 @@
+POPL 2019 Paper #178 Reviews and Comments
+===========================================================================
+Paper #178 Constructing Quotient Inductive-Inductive Types
+
+
+Review #178A
+===========================================================================
+
+Overall merit
+-------------
+A. Strong Accept
+
+Reviewer expertise
+------------------
+X. Expert
+
+Paper summary
+-------------
+This paper constructs an interpretation of (function-free) quotient-inductive-inductive types (QIITs) within Martin-Löf's extensional type theory. This is a huge proof, partially formalized in Agda, and which the author(s) succeed(s) in explaining with quite a lot of pedagogy. The paper also includes turning this construction into a so-called category with families, with additional constant type and extensional equality type structure, what also allows to take benefit of general results about such structure, and in particular to show that having a unique recursor is equivalent to induction, but this looks to me like a marginal by-product of the work.
+
+QIITs is a central concept in the quest for common foundations to logic and programming. Starting with natural numbers, lists, trees, typing contexts, etc., logic and programming can be seen as being about inductive types. Continuing with proofs, derivability, vectors, etc., ... logic and programming is more generally about dependent inductive types. With quotient-inductive-inductive types, a new level is reached which integrates equations, such as associativity of concatenation of lists, beta-reduction, etc. within the definition of the dependently-typed inductive structure. In particular, programming languages or logics, together with their typing rules and their equational semantics can be described as a whole using the single concept of a QIIT, which moreover, simply amounts to the characterization of special forms of ordinary dependent typing contexts.
+
+Even if the concept now exists for a couple of years, I found the work done in the paper extremely convincing from a foundational perspective, by its effectiveness, precision and clarity.
+
+The number of cases to consider in the proof looks impressive (a matrix of 34 times 39  dependent constructions to describe), but at the end, this is just making explicit as proof objects what generally occurs hidden in paper proofs under the form of "we can check that the expected equations hold by this and that" or "we can check that the invariants hold by this and that", ... So, in this sense, the paper is strongly promoting a new (computer-assisted) level of precision in dealing with foundations of logic and programming.
+
+Strengths
+---------
+This is a precise, clear, concrete and somehow foundational proof of the semantics of quotient-inductive-inductive types, even if limited to QIITs without function types in the type of constructors.
+
+Weaknesses
+----------
+The contribution seems to be more about a precise, clear, concrete and somehow foundational proof than about a fully original proof, especially compared to a related paper at FoSSaCS 2018 by Altenkirch et al.
+
+Comments for author
+-------------------
+I find the discussion about "function space with small domain" a bit complicated. Why not to see Π as an operator adding parameters rather than as a function space, i.e. as an operator for providing an elementary type to constructors, i.e. as a curryfied form of $x:Ξ \vdash a x$ for Ξ an elementary (Π-free) type of the constructor. And it is not only that it ensures strict positivity, it is more that it simply disallow Π types in the types of the arguments of a constructor.
+
+Did you use impredicativity in the proof?
+
+It may help that the last paragraph before 1.1 may tell that Sections 1.1-1.3 uses notations defined in the introduction of Section 2.
+
+Paper is sometimes a bit "jargon", like "proof-relevant predicate over B" on page 3, or "strict computational rule" on page 4.
+
+Page 7, line 297, Forsberg is "Nordvall Forsberg" in the citation but not in the text.
+
+Page 7, line 308, "for a some HITs"
+
+Page 7, line 326, "the notation in the paper" -> "the notation used in the paper"
+
+Page 7, line 339, "an an equality"
+
+Page 9, line 432, "susbtitution"
+
+Page 17, line 810, "and Ty as displayed N-algebras" -> "and Tm as sections" ??
+
+Page 19, Figure 1, line 885, second "_D" should be "_S"
+
+Appendix B, page 35, line 1508 is redundant
+
+
+
+Review #178B
+===========================================================================
+
+Overall merit
+-------------
+B. Weak accept
+
+Reviewer expertise
+------------------
+X. Expert
+
+Paper summary
+-------------
+This paper presents a syntax of quotient inductive-inductive types, and
+discusses some aspects of semantics.
+A QIIT is basically a one-dimensional HIIT, where all paths between two
+elements are equal.
+
+As the authors point out, their notion of QIIT appears to be fully subsumed
+by the well-studied notion of Generalized Algebraic Theories.
+The main difference of this paper is that the development takes place in
+type theory as the metatheory ("informal type theory").  However, the type
+theory used in the paper is not the standard Martin-Lof type theory, but
+its extension with UIP and Function Extensionality.
+
+The syntax of QIITs itself forms a QIIT; the interpretation of QIITs begins
+with postulating the existence of one specific QIIT, "the theory of
+signatures".  Other QIITs are formed as contexts in this theory.
+
+The paper proceeds to develop notions of algebras, dependent algebras, and
+homomorphisms between these, all in the language of type theory.
+
+Overall, this submission should be a worthwhile contribution to the
+conference.
+
+Strengths
+---------
+A large part of the development has been formalized in Agda, which
+is certainly a plus.  The paper can thus be seen mainly as a of report
+on this formalization project.
+
+Weaknesses
+----------
+The whole paper is written in a very informal style. There
+are no formal definitions, theorems, or proofs. This makes
+it hard to judge the technical/mathematical contribution of
+this paper.
+
+Comments for author
+-------------------
+GENERAL COMMENTS.
+
+The abstract claims to "show that all specified QIITs exist and have a
+dependent elimination principle".  In fact, as later acknowledged by the
+authors, this requires existence of QIITs in the metatheory.  (In
+particular, the "theory of signatures" QIIT.) It is not clear what additional
+assumptions in the metatheory are added throughout the development.
+
+The "theory of signatures" QIIT is not itself well-behaved; the equality
+rules are not confluent, and it is very doubtful the theory admits a
+convergent presentation.  Thus, it is not a natural extension of type
+theory.
+
+OTHER QUESTIONS.
+
+That "dependent elimination is equivalent to initiality" seems to be a
+meta-theorem.  Is it?  Or is it formalized?
+
+line 109: Is Delta^A small or large?
+
+line 190: If conversion in the theory is given by prop. equality in the
+metatheory, then conversion of terms (and the typing relation) depends on
+the metatheory.  Can you give an example where membership in some type
+changes by a slight change in the metatheory?
+
+line 315-316: "develop" but "extends" [number agreement]
+
+
+
+Review #178C
+===========================================================================
+
+Overall merit
+-------------
+B. Weak accept
+
+Reviewer expertise
+------------------
+X. Expert
+
+Paper summary
+-------------
+Quotient inductive-inductive types (QIIT) are an expressive way to
+introduce mutually inductively defined families of types together with
+stipulating equations on the constructors. They have been previously
+used as a constructive alternative choice axioms as well as to
+internalise the syntax of type theories in type theory.
+
+Even though QIIT have been found valuable at work, their construction
+is a work in progress, an open issue that is addressed in this paper.
+
+After exposing the notion of QIIT, the authors explain how to reduce
+the problem of the existence of finitary QIITs to a specific
+QIIT. This QIIT can be seen as a small domain specific type theory of
+signatures, with new QIITs being described as context in this type
+theory. This encoding is illustrated on 3 examples, the natural
+numbers, the (relative) integers, and a small type theory presenting
+gradually the specificity of the encoding for the quotient and
+induction-induction part.
+
+The type theory of signatures and the construction of the QIITs from
+their signatures is then explained in detail. The main idea is to use
+the standard or tautological model of the type theory of signature in
+its surrounding metatheory (Martin-Löf's type theory with function
+extensionality and uniqueness of identity proofs) to construct the
+carriers of QIITs and then employ various parametricity translations
+to obtain the recursors and dependent eliminators, as well as the
+proof of the properties they should satisfy.
+
+In order to show that the validity of the approach, the QIIT built
+from a signature $\Sigma$ is shown to be the initial in a relevant
+(democratic, extensional) category with families
+($\text{CwF}^{\mathsf{K}}_{\mathsf{Eq}}$) of $\Sigma$-algebras.
+
+This work is developed in great detail and it also comes with a
+corresponding formalisation in Agda. On the downside, the paper feels
+a bit try and, e.g., in my opinion the Introduction could be made more
+high-level, so as to lure in more of the general POPL audience. Also,
+I feel the precise relationship of this work compared to the recent
+(related) work on HIITs and QIITs should be made clearer (see below).
+
+Strengths
+---------
+Tackles an important problem of developing a framework for defining
+QIITs, and shows the defined QIITs are indeed initial such.
+
+The work is presented in great detail and is also accompanied by a
+mechanised formalisation in Agda.
+
+Weaknesses
+----------
+The paper is not for the faint-hearted members of the POPL audience---a
+lot of typetheoretic syntax is thrown at them from the very beginning.
+
+Relationship to recent other papers about QIITs should be made more
+precise and more clear.
+
+The proposed syntactic framework is unable to support infinitely
+branching QIITs, such as W-types.
+
+Comments for author
+-------------------
+##Comments:##
+
+1. The Con-Ty example in the Introduction
+
+   Is it deliberate that you have chosen the same notation for the
+   example base type as you later use for the universe?
+
+   Could you perhaps use a more realistic example of an equality
+   constructor---while this equality is reminiscent of the strength
+   condition usually imposed on $\Sigma$-types so as to have dependent
+   elimination for them, then even in split models of Type Theory this
+   property is given as a canonical isomorphism rather than equality
+   (remember that in this paper you are working in a setting with UIP).
+
+2. Page 4, line 148
+
+   Should $A^{\mathsf D}$ be additionally quantifying over $\gamma$ as well?
+   I was also wondering about the same thing later in the paper when different
+   $(-)^M$ and other similar interpretations are defined.
+
+3. Page 4, line 190
+
+   Make it clear that by $=$ you denote the propositional equality of the
+   metatheory, not its definitional equality. Otherwise this explanation of
+   equality reflection can sound strange.
+
+4. Page 5, line 200
+
+   Do you have any specific reason for carrying around the additional
+   terminal set components in these products?
+
+6. Page 6, lines 318--320
+
+   The comparison with the work of Altenkirch et al. needs to be made
+   more precise. Browsing that paper, I noticed in their Section 4.2
+   they also discuss the correspondence between initiality and
+   dependent induction, analogously to Section 7.3 in this paper.
+   Supposedly the main difference and improvement of this work over
+   theirs is that they don't construct initial algebras. Please make
+   it explicit and clear!
+
+   Further, do you have any ideas whether their work could be amended
+   to include semantic conditions corresponding to your syntactic
+   strict positivity restriction, so as to also construct initial
+   algebras in that more category-theoretic setting?
+
+7. Section 2
+
+   Do you think this section could be turned into Section 1.0, or
+   alternatively could the introduction be phrased at more high-level,
+   so as to make the (beginning of the) paper more accessible to the
+   wider POPL and PL audience?
+
+8. Page 10, line 473
+
+   Is there any specific reason why you haven't included a lambda
+   for the function space with small domain?
+
+9. Section 3.2
+
+   Do you really think that presenting de Bruijn variants of these
+   examples is beneficial to the reader? Perhaps for computers, but
+   as a human reader I am much more happy with named variables, in
+   particular as later in the paper you keep with the latter.
+
+10. Page 12, line 574
+
+    Does $2$ stand for the context morphism into the second variable?
+
+11. Page 17, lines 795--799
+
+    What is this display math environment meant to convey to the reader?
+
+12. Page 18, line 866
+
+    Again, for the benefit of the general audience, please relate
+    $isContr$ to the notion of contractibility in the HoTT literature.
+
+
+##Typos:##
+
+- page 5, lines 207--209, rename one of the $e$s because the second
+  one is shadowing the first
+
+- page 5, line 230, "$\Phi$" -> "$\Theta$" (2x)
+
+- page 6, line 269, "the Sections" -> "Sections"
+
+- page 7, line 308, "for a some HITs" -> for some HITs
+
+- page 7, line 316, "and extends" -> "and extend"
+
+- page 10, line 487, please rename object-level transport so that it
+  wouldn't coincide with the notation for the terminal set
+
+- page 13, line 605, $(\mathsf{El}~a)^A~v~t$ -> $(\mathsf{El}~a)^C~v~t$
+
+- page 14, line 656, "$\mathsf{Nat}^1$" -> "$\mathsf{Nat}^0$" (first occurrence)
+
+- page 14, line 675, "$a^{\mathsf{C}}~\mathsf{con}$" -> "$a^{A}~\mathsf{con}$"
+
+- page 14, line 676, remove the application of symmetry
+
+- Section 7, dependent elimination vs induction (please be consistent)
+
+- page 17, line 810, "$\mathsf{Ty}$ as displayed $\mathbb{N}$-algebras" -> "$\mathsf{Tm}$ as sections of displayed $\mathbb{N}$-algebras"
+
+Questions for authors’ response
+---------------------------------
+What are the precise similarities, differences, and improvements of
+this work compared to other recent papers on HIITs and QIITs, namely,
+compared to the work of Altenkirch et al. from FoSSaCS 2018?
+(Please answer to my comment no 6 from above)
+
+How confident are you that replacing the propositional equalities in
+the initial algebra construction would allow the proposed framework to
+scale to non-finitary QIITs?

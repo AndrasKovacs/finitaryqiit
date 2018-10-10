@@ -1,0 +1,88 @@
+
+Answers to reviewer A:
+
+- The function space with small domain can be indeed seen as an
+  operator which adds parameters to constructors.
+
+- We don't use impredicativity in the paper.
+
+
+Answers to reviewer B:
+
+- We use the metatheoretic assumptions which are stated in section 2:
+  UIP, function extensionality, and the QIIT of signatures.
+
+- On well-behavedness of signatures: the definition of the syntax
+  follows Altenkirch & Kaposi (POPL 2016), and it is based on CwF-s,
+  which is a standard categorical presentation of the syntax. We add the
+  non-standard function space with metatheoretic
+  domain. Also, the syntax is an equational theory
+  and the rules should not be read as rewriting rules, and equality
+  derivations have to be explicitly constructed in the metatheory.
+
+- The equivalence of elimination and initiality is a theorem. It follows
+  from the CwF-K-Eq model, which is partially formalized
+  in Agda.
+
+- Delta^A is a large Sigma-type in the metatheory.
+
+- Indeed, for instance, more terms are typable when the metatheory has
+  function extensionality.  Consider the following context:
+
+    (A    : Pi^ Nat \n -> U,
+     con1 : Pi^ Nat \n -> A @^ n,
+     con2 : Pi^ Nat \n -> A @^ (n + 0))
+
+  In this context, con2 has type (Pi^ Nat \n -> A @^ n) only if we
+  have funext in the metatheory. That's because metatheoretic
+  functions appear in Pi^. This situation does not arise if we only
+  have closed QIIT signatures.
+
+
+Answers to reviewer C:
+
+1. We will rename U to iota in the example. We've found that this is
+   the smallest example with a meaningful equality constructor.
+
+2. Yes, it quantifies over gamma implicitly. We will clarify this and
+   refer to section 2 where this is explained.
+
+3. We will clarify.
+
+4. We include Top here to signal that ^M is to be computed entry-wise
+   from signatures.
+
+6. We improve on the FoSSaCS 2018 paper in the following ways. We will
+   make this clear in the paper.
+
+    - Construction of initial algebras.
+    - Showing that being able to specify signatures is already enough to
+      construct initial algebras.
+    - Computing notions of displayed algebras and sections strictly, not
+      just up to isomorphism.  Kaposi & Kovács FSCD 2018 demoed this
+      with a computer program which outputs types of eliminators from
+      input signatures. FoSSaCS 2018 used finite completeness as a
+      property to talk about induction, while we use explicit CwF
+      structure for the same purpose.
+
+   We haven't investigated the relation between the semantic
+   conditions in FoSSaCS 2018 and our syntax. This could be future
+   work.
+
+7. We will refer to section 2 before section 1.1.
+
+8. We skip lambda only because we know of no QIIT examples where it is
+   required.
+
+9. Apart from section 1, we exclusively use de Bruijn indices in the
+   theory of signatures, names are only for metatheoretic variables.
+
+10. "2" denotes a de Bruijn variable.
+
+11, 12: we'll improve the presentation.
+
+
+Scaling to infinitary QIITs: we are confident that the solution
+mentioned in section 8 works. A different potential solution is to
+recover set-level univalence in models, by switching to a
+groupoid-truncated syntax (extended with some coherence laws).
