@@ -59,6 +59,11 @@ UIP̃' :
   ∀ {α}{A : Set α}{x y x' y' : A}(p : x ≡ y)(q : x' ≡ y') → x ≡ x' → y ≡ y' → p ≃ q
 UIP̃' refl refl refl refl = refl̃
 
+UIP̃'' :
+    ∀ {α}{A B : Set α}{x y : A}{x' y' : B}
+      (p : x ≡ y)(q : x' ≡ y') → x ≃ x' → y ≃ y' → p ≃ q
+UIP̃'' refl refl refl̃ refl̃ = refl̃
+
 infix 6 _⁻¹̃
 _⁻¹̃ : ∀ {α}{A B : Set α}{a : A}{b : B} → a ≃ b → b ≃ a
 refl̃ ⁻¹̃ = refl̃
