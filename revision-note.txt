@@ -1,0 +1,5 @@
+
+The primary addition in the revision of the paper is in the related
+work section, regarding Cartmell's generalised algebraic theories and
+the FoSSaCS 2018 paper about QIITs. Other changes are corrections of
+spelling and notation suggested by reviewers.
