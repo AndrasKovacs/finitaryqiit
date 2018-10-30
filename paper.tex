@@ -861,23 +861,37 @@ We will denote variables by natural numbers, e.g. $3 :\equiv
 \vs\,(\vs\,(\vs\,\vz))$.
 
 As an example of using the substitution calculus, we prove the functor
-laws for terms using equational reasoning.
+laws for terms using equational reasoning. We use the same names for
+these laws as for type subsitution: ${[\id]}$ and ${[\circ]}$.
 \begin{alignat*}{15}
-  & [\id] && : && t[\id] &&                      && && \hspace{6em} [\circ] && : && t[\sigma\circ\delta] \\
-  & && && && && {\rhd\beta_2}^{-1}                && && && && && {\rhd\beta_2}^{-1} \\
-  & && = \,\, && \pi_2\,(\id, t[\id]) &&         && && && = \,\, && \pi_2\,(\sigma\circ\delta, t[\sigma\circ\delta]) \\
-  & && && && && {\idl}^{-1}                       && && && && && {\idl}^{-1} \\
-  & && = \,\, && \pi_2\,(\id\circ\id, t[\id])    && && && && = \,\, && \pi_2\,(\id\circ(\sigma\circ\delta), t[\sigma\circ\delta]) \\
-  & && && && && {,\circ}^{-1}                    && && && && && {,\circ}^{-1} \\
-  & && = \,\, && \pi_2\,((\id, t)\circ\id) &&    && && && = \,\, && \pi_2\,((\id, t)\circ(\sigma\circ\delta)) \\
-  & && && && && \idr                             && && && && && \ass^{-1} \\
-  & && = \,\, && \pi_2\,(\id, t) &&              && && && = \,\, && \pi_2\,(((\id, t)\circ\sigma)\circ\delta) \\
-  & && && && && {\rhd\beta_2}                    && && && && && {,\circ} \\
-  & && = \,\, && t &&                            && && && = \,\, && \pi_2\,((\id\circ\sigma, t[\sigma])\circ\delta) \\
-  & && && &&                                     && && && && && && {,\circ} \\
-  & && && &&                                     && && && = \,\, && \pi_2\,((\id\circ\sigma)\circ\delta, t[\sigma][\delta]) \\
-  & && && &&                                     && && && && && && {\rhd\beta_2} \\
-  & && && &&                                     && && && = \,\, && t[\sigma][\delta]
+  & [\id] && : && t[\id] \\
+  & && && && && {\rhd\beta_2}^{-1} \\
+  & && = \,\, && \pi_2\,(\id, t[\id]) \\
+  & && && && && {\idl}^{-1} \\
+  & && = \,\, && \pi_2\,(\id\circ\id, t[\id]) \\
+  & && && && && {,\circ}^{-1} \\
+  & && = \,\, && \pi_2\,((\id, t)\circ\id) \\
+  & && && && && \idr \\
+  & && = \,\, && \pi_2\,(\id, t) \\
+  & && && && && {\rhd\beta_2} \\
+  & && = \,\, && t \\
+  \\
+  \\
+  & [\circ] && : && t[\sigma\circ\delta] \\                                
+  & && && && \hspace{2em} && {\rhd\beta_2}^{-1} \\                                                    
+  & && = \,\, && \pi_2\,(\sigma\circ\delta, t[\sigma\circ\delta]) \\                   
+  & && && && && {\idl}^{-1} \\                                                           
+  & && = \,\, && \pi_2\,(\id\circ(\sigma\circ\delta), t[\sigma\circ\delta]) \\      
+  & && && && && {,\circ}^{-1} \\                                                          
+  & && = \,\, && \pi_2\,((\id, t)\circ(\sigma\circ\delta)) \\                          
+  & && && && && \ass^{-1} \\                                                              
+  & && = \,\, && \pi_2\,(((\id, t)\circ\sigma)\circ\delta) \\                          
+  & && && && && {,\circ} \\                                                               
+  & && = \,\, && \pi_2\,((\id\circ\sigma, t[\sigma])\circ\delta) \\                    
+  & && && && && {,\circ} \\                                                              
+  & && = \,\, && \pi_2\,((\id\circ\sigma)\circ\delta, t[\sigma][\delta]) \\            
+  & && && && && {\rhd\beta_2} \\                                                       
+  & && = \,\, && t[\sigma][\delta]                                                     
 \end{alignat*}
 
 In addition to the substitution calculus, we have an empty {\em
@@ -1351,6 +1365,8 @@ two additional structures: \emph{constant families} and
 \emph{extensional equality}. As we shall see shortly, these are
 required for the proof that having induction for an object implies its
 initiality.
+
+\pagebreak
 
 \textbf{Constant families} internalize every object (i.e. $\Con$) as a
 family ($\Ty$ and $\Tm$). The rules are as follows:
