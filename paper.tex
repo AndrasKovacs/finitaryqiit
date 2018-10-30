@@ -202,7 +202,7 @@ syntax of a small type theory.
   & \Ty && : \Con\ra\Set \\
   & \cdot && : \Con \\
   & \rhd && : (\mathit{\Gamma}:\Con)\ra\Ty\,\mathit{\Gamma}\ra\Con \\
-  & \U && : (\mathit{\Gamma}:\Con)\ra\Ty\,\mathit{\Gamma} \\
+  & \iota && : (\mathit{\Gamma}:\Con)\ra\Ty\,\mathit{\Gamma} \\
   & \Sigma && : (\mathit{\Gamma}:\Con)\ra(A:\Ty\,\mathit{\Gamma})\ra\Ty\,(\mathit{\Gamma}\rhd A)\ra\Ty\,\mathit{\Gamma} \\
   & \mathsf{eq} && : (\mathit{\Gamma}:\Con)\ra(A:\Ty\,\mathit{\Gamma})\ra(B:\Ty\,(\mathit{\Gamma}\rhd A))\ra (\Gamma\rhd A \rhd B = \Gamma\rhd \Sigma\,\Gamma\,A\,B)
 \end{alignat*}
@@ -214,7 +214,7 @@ returns the extended context. Note that we cannot turn this QIIT into
 two inductive types defined one after the other because the
 $\Con$-constructor $\rhd$ refers to $\Ty$, hence $\Con$ and $\Ty$ must
 be defined \emph{at the same time}. There is a constructor for a base
-type $\U$ in any context and a constructor for $\Sigma$ types. This
+type $\iota$ in any context and a constructor for $\Sigma$ types. This
 takes a context (this could be made an implicit parameter), a type $A$
 in that context and a type in the context extended by $A$ and returns
 a type in the original context. The third argument of $\Sigma$ shows a
@@ -901,7 +901,8 @@ substitution laws.
 By restricting the domain to be small, we can only write strictly
 positive operators (we cannot write $\Pi\,(\Pi\,a\,B)\,C$ because the
 first argument of $\Pi$ needs to be small but $(\Pi\,a\,B)$ itself is
-large). There is no lambda, therefore this function type only has
+large). We omit lambda abstraction, because there is no essential use
+for it in signatures, and it follows that this function type only has
 neutral elements. We define the non-dependent function space by the
 following abbreviation.
 \[
