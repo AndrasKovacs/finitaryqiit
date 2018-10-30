@@ -399,7 +399,7 @@ operations.
   & && \big((x:N)\ra N^D\,x\ra N^S\,(s\,x) = s^D\,x\,(N^S\,x)\big)
 \end{alignat*}
 The operation $\blank^\S$ is a modified dependent logical relation
-interpretation: a $\Gamma$ context is interpreted as a dependent
+interpretation: a context $\Gamma$ is interpreted as a dependent
 relation $\Gamma^\S:(\gamma:\Gamma^\A)\ra\Gamma^\D\,\gamma\ra\Set$.
 
 Given a displayed algebra $(N^D,z^D,s^D)$ over the initial algebra $\con_\Delta$,
@@ -450,7 +450,7 @@ equality.
 \Phi^\A \equiv (I:\Set)\times(p:\N\ra\N\ra I)\times\big((a\,b\,c\,d:\N)\ra a+d=b+c\ra p\,a\,b=p\,c\,d\big)
 \]
 The initial algebra is given by the terms of type $\El\,\mathit{Int}$
-in context $\Theta$. The identity type $\Id$ has the equality reflection
+in context $\Phi$. The identity type $\Id$ has the equality reflection
 rule which says that if there is a term of type
 $\Id\,\mathit{Int}\,t\,u$, then we have $t = u$ (conversion in the
 theory of signatures is given by propositional equality in the
@@ -650,7 +650,7 @@ cubical type theory \cite{ctt} with these HITs.
 \cite{altenkirch2018quotient} also concerns QIITs. There, signatures
 are given by a scheme which builds up complete categories of algebras
 from lists of functors. This notion of signature is more semantic than
-our one, with more overhead in encoding signatures. It also does not
+ours, with more overhead in encoding signatures. It also does not
 enforce strict positivity, hence the paper does not construct initial algebras.
 Nonetheless, it is shown that well-behaved QIIT signatures
 are covered by this scheme. Also, induction is shown to be equivalent
@@ -680,7 +680,7 @@ explicit initial algebra construction and the CwF model, which yields
 a small internal type theory of algebras for each signature, and which
 in particular allows us to exactly compute eliminators and
 homomorphisms as types in the meta type theory.\footnote{This is
-demoed in \cite{kaposi_et_al:LIPIcs:2018:9190}, by a Haskell program which
+demonstrated in \cite{kaposi_et_al:LIPIcs:2018:9190}, by a Haskell program which
 takes a signature as input, type checks it, then outputs the
 corresponding induction methods and eliminators as an Agda file.}
 
@@ -1086,7 +1086,7 @@ $\Omega$ subscripts from now on).
   & (\sigma:\Tms\,\Gamma\,\Delta)^\C && : (\nu:\Tms\,\Omega\,\Gamma)\ra \Delta^\C\,(\sigma\circ\nu)=\sigma^\A\,(\Gamma^\C\,\nu) \\
   & (t:\Tm\,\Gamma\,A)^\C && : (\nu:\Tms\,\Omega\,\Gamma)\ra A^\C\,\nu\,(t[\nu])=t^\A\,(\Gamma^\C\,\nu)
 \end{alignat*}
-Once provided with a subsitution into the context, contexts are
+Once provided with a substitution into the context, contexts are
 interpreted as algebras. The interpretation of types is determined by
 the need for context extension: $(\Gamma\rhd A)^\C\,(\nu,t)$ has type
 $(\Gamma\rhd A)^\A\equiv(\gamma:\Gamma^\A)\times A^\A\,\gamma$. We can
@@ -1719,7 +1719,7 @@ definition of the displayed objects in the result (a displayed object
 is a dependent function), since $\blank^\A$ should yield this part of
 the CwF$^\K_{\Eq}$ model. Note that $(\alpha:a^\A\,\gamma)\ra
 B^\A\,(\gamma, \alpha)$ is just a plain function space, without any
-conditions for functiorality or structure preservation. Fortunately,
+conditions for functorality or structure preservation. Fortunately,
 we don't need such conditions because the domain $a$ is discrete. In
 the implementation, all of the required displayed CwF$^\K_{\Eq}$
 structure is inherited from the codomain; for example,
