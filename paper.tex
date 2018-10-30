@@ -602,42 +602,6 @@ $\elim_\Gamma$ & $: (\gamma^D:\Gamma^\D\,\con_\Gamma)\ra\Gamma^\S\,\con_\Gamma\,
 \subsection{Related work}
 \label{sec:related-work}
 
-Cartmell \cite{gat} also used a type-theoretic syntax for a class of
-theories, called generalised algebraic theories (GATs). GATs cover
-roughly the same theories as this work does, with the difference that
-GATs additionally allow equations between sorts. Besides this, there
-are two main differences to the current work.
-
-First, regarding the definitions of the signatures: GATs are given by
-a nameful presyntax along with well-formedness relations, while our
-signatures are intrinsically typed and given by structured
-categories. This greatly simplifies formal development, makes
-machine-checked formalisation feasible, and also clarifies the notion
-of induction over signatures.
-
-Second, the focus of the current work differs. Cartmell's main result
-was the establishment of contextual categories as classifying
-categories of GATs. In contrast, we do not discuss classifying
-categories\footnote{This could be included in future work.}. Instead,
-we present more constructions involving algebras; these include an
-explicit initial algebra construction and the CwF model, which yields
-a small internal type theory of algebras for each signature, and which
-in particular allows us to exactly compute eliminators and
-homomorphisms as types in the meta type theory.\footnote{This is
-demoed in \cite{kaposi_et_al:LIPIcs:2018:9190}, by a Haskell program which
-takes a signature as input, type checks it, then outputs the
-corresponding induction methods and eliminators as an Agda file.}
-
-\cite{altenkirch2018quotient} also concerns QIITs. There, signatures
-are given by a scheme which builds up complete categories of algebras
-from lists of functors. This notion of signature is more semantic than
-our one, with more overhead in encoding signatures. It also does not
-enforce strict positivity, hence it does not always support initial
-algebras. Nonetheless, it is shown that well-behaved QIIT signatures
-are covered by this scheme. Also, induction is shown to be equivalent
-to initiality, but the notion of induction is given only up to
-isomorphisms of algebras, in contrast to the current work, where it is
-computed strictly.
 
 
 % We give an overview of works describing schemes for various classes of
@@ -682,6 +646,45 @@ algebras for a cell monad with parameters. \cite{cubicalhits} develop
 semantics for several HITs (sphere, torus, suspensions, truncations,
 pushouts) in certain presheaf toposes, and extend the syntax of
 cubical type theory \cite{ctt} with these HITs.
+
+\cite{altenkirch2018quotient} also concerns QIITs. There, signatures
+are given by a scheme which builds up complete categories of algebras
+from lists of functors. This notion of signature is more semantic than
+our one, with more overhead in encoding signatures. It also does not
+enforce strict positivity, hence the paper does not construct initial algebras.
+Nonetheless, it is shown that well-behaved QIIT signatures
+are covered by this scheme. Also, induction is shown to be equivalent
+to initiality, but the notion of induction is given only up to
+isomorphisms of algebras, in contrast to the current work, where it is
+computed strictly.
+
+Cartmell \cite{gat} also used a type-theoretic syntax for a class of
+theories, called generalised algebraic theories (GATs). GATs cover
+roughly the same theories as this work does, with the difference that
+GATs additionally allow equations between sorts. Besides this, there
+are two main differences to the current work.
+
+First, regarding the definitions of the signatures: GATs are given by
+a nameful presyntax along with well-formedness relations, while our
+signatures are intrinsically typed and given by structured
+categories. This greatly simplifies formal development, makes
+machine-checked formalisation feasible, and also clarifies the notion
+of induction over signatures.
+
+Second, the focus of the current work differs. Cartmell's main result
+was the establishment of contextual categories as classifying
+categories of GATs. In contrast, we do not discuss classifying
+categories. Instead,
+we present more constructions involving algebras; these include an
+explicit initial algebra construction and the CwF model, which yields
+a small internal type theory of algebras for each signature, and which
+in particular allows us to exactly compute eliminators and
+homomorphisms as types in the meta type theory.\footnote{This is
+demoed in \cite{kaposi_et_al:LIPIcs:2018:9190}, by a Haskell program which
+takes a signature as input, type checks it, then outputs the
+corresponding induction methods and eliminators as an Agda file.}
+
+
 
 Our notion of displayed algebra is analogous to displayed categories
 in \cite{displayedCategories}, and our definition of total algebras
@@ -1159,7 +1162,7 @@ relation interpretation, the right hand side is the one we use.
 \begin{alignat*}{10}
   & \U^{\M'}\,\gamma^{M'}\,T^{\mathit{0}}\,T^{\mathit{1}} && :\equiv T^{\mathit{0}}\ra T^{\mathit{1}}\ra\U  && \U^\M\,\gamma^M\,T^{\mathit{0}}\,T^{\mathit{1}} && :\equiv T^{\mathit{0}}\ra T^{\mathit{1}} \\
   & (\El\,a)^{\M'}\,\gamma^{M'}\,\alpha^{\mathit{0}}\,\alpha^{\mathit{1}} && :\equiv a^{\M'}\,\gamma^{M'}\,\alpha^{\mathit{0}}\,\alpha^{\mathit{1}} && (\El\,a)^\M\,\gamma^M\,\alpha^{\mathit{0}}\,\alpha^{\mathit{1}} && :\equiv a^\M\,\gamma^M\,\alpha^{\mathit{0}} = \alpha^{\mathit{1}} \\
-  & (\Pi\,a\,B)^{\M'}\,\gamma^{M'}\,f^{\mathit{0}}\,f^{\mathit{1}} && :\equiv (\alpha^{M'}:a^{M'}\,\gamma^{M'}\,\alpha^{\mathit{0}}\,\alpha^{\mathit{1}})\ra\hspace{2em}  && (\Pi\,a\,B)^\M\,\gamma^M\,f^{\mathit{0}}\,f^{\mathit{1}} && :\equiv (\alpha^{\mathit{0}}:a^\A\,\gamma^{\mathit{0}})\ra \\
+  & (\Pi\,a\,B)^{\M'}\,\gamma^{M'}\,f^{\mathit{0}}\,f^{\mathit{1}} && :\equiv (\alpha^{M'}:a^{M'}\,\gamma^{M'}\,\alpha^{\mathit{0}}\,\alpha^{\mathit{1}})\ra\hspace{1.5em}  && (\Pi\,a\,B)^\M\,\gamma^M\,f^{\mathit{0}}\,f^{\mathit{1}} && :\equiv (\alpha^{\mathit{0}}:a^\A\,\gamma^{\mathit{0}})\ra \\
   &  && \hspace{1.5em} B^{\M'}\,(\gamma^{M'}, \alpha^{M'})\,(f^{\mathit{0}}\,\alpha^{\mathit{0}}) &&  && \hspace{2em} B^\M\,(\gamma^M, \refl)\,(f^{\mathit{0}}\,\alpha^{\mathit{0}}) \\
   &  && \hspace{1.5em} \hphantom{B^{\M'}\,(\gamma^{M'}, \alpha^{M'})\,} (f^{\mathit{1}}\,\alpha^{\mathit{1}}) &&  && \hspace{3.4em}(f^{\mathit{1}}\,(a^\M\,\gamma^M\,\alpha^{\mathit{0}})) \\
   & (t\app u)^{\M'}\,\gamma^{M'} && :\equiv t^{\M'}\,(u^{\M'}\,\gamma^{M'}) && (t\app u)^\M\,\gamma^M && :\equiv \J\,(t^\M\,\gamma^M\,(u^\A\,\gamma))\,(u^\M\,\gamma^M)
