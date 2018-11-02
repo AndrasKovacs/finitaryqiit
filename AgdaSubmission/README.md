@@ -4,9 +4,9 @@
 #### Installation
 
 This folder has been tested with Agda 2.5.4. and 2.5.4.1. Newer Agda
-versions likely work as well. Setting up Agda standard library is also
+versions likely work as well. An Agda standard library is also
 needed. This project was tested with the 16.1 version. Instructions
-how to set it up can be found
+how to set up the standard library can be found
 [here](https://agda.readthedocs.io/en/v2.5.4.1/tools/package-system.html),
 the library itself can be downloaded from
 [here](https://github.com/agda/agda-stdlib/releases).
@@ -58,11 +58,11 @@ you can refer to [`Syntax.agda`](Syntax.agda) for the corresponding
 readable non-expanded forms, or print component types with "C-c-d"
 while in the interactive Agda mode.
 
-Using model component types which have just the minimum necessary type
-annotations is extremely time consuming, because there are (at least)
+Providing model component types which have just the minimum necessary
+type annotations is not really feasible, because there are (at least)
 hundreds of potential configurations of implicit/explicit annotations,
-and it is not humanly predicably or tractable which metavariables will
-be solvable. Hence we just brute-force this issue by printing all
+and it is not humanly predictable or tractable which metavariables
+will be solvable. Hence we just brute-force this issue by printing all
 parameters explicitly in models.
 
 [`DependentModelTemplate.agda`](DependentModelTemplate.agda) is
