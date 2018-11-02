@@ -1,5 +1,5 @@
 
-\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+\documentclass[acmsmall,screen]{acmart}
 
 \usepackage{proof}
 \usepackage{amssymb}
@@ -161,20 +161,14 @@ to initiality.
 \begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10011007.10011006.10011008</concept_id>
-<concept_desc>Software and its engineering~General programming languages</concept_desc>
+<concept_id>10003752.10003790.10011740</concept_id>
+<concept_desc>Theory of computation~Type theory</concept_desc>
 <concept_significance>500</concept_significance>
-</concept>
-<concept>
-<concept_id>10003456.10003457.10003521.10003525</concept_id>
-<concept_desc>Social and professional topics~History of programming languages</concept_desc>
-<concept_significance>300</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Software and its engineering~General programming languages}
-\ccsdesc[300]{Social and professional topics~History of programming languages}
+\ccsdesc[500]{Theory of computation~Type theory}
 %% End of generated code
 
 
@@ -290,7 +284,7 @@ how our method works for the above $\Con$-$\Ty$ example. Our notation
 below is standard, but we summarise it in Section
 \ref{sec:metatheory}.
 
-\subsection{Natural numbers}
+\subsection{Natural Numbers}
 \label{sec:naturals}
 
 The theory of signatures is a small internal type theory with a
@@ -496,7 +490,7 @@ element of the following set.
 The eliminator can be defined using $\blank^\D$ and $\blank^\C$ as in
 the case of natural numbers.
 
-\subsection{Contexts and types}
+\subsection{Contexts and Types}
 \label{sec:conty}
 
 The previous $\Con$-$\Ty$ example is represented by the context below. We only present here a prefix of the definition which suffices to demonstrate inductive-inductive dependency.
@@ -552,7 +546,7 @@ refers to the first one.
 The eliminator is given analogously to the recursor, but using
 $\blank^\D$ and $\blank^\C$ instead of $\blank^\A$.
 
-\subsection{Overview of the rest of the paper}
+\subsection{Overview of the Rest of the Paper}
 
 After a discussion of related work, we describe the metatheory in
 Section \ref{sec:metatheory}. We define the type theory of signatures
@@ -599,7 +593,7 @@ $\elim_\Gamma$ & $: (\gamma^D:\Gamma^\D\,\con_\Gamma)\ra\Gamma^\S\,\con_\Gamma\,
 %   & \elim_\Gamma && : (\gamma^D:\Gamma^\D\,\con_\Gamma)\ra\Gamma^\S\,\con_\Gamma\,\gamma^D && \text{eliminator: } \elim_\Gamma\,\gamma^D:\equiv \Gamma^{\E_{\Gamma,\gamma^D}}\,\id_\Gamma
 % \end{alignat*}
 
-\subsection{Related work}
+\subsection{Related Work}
 \label{sec:related-work}
 
 
@@ -781,7 +775,7 @@ of \cite{ttintt}. Our definition of the syntax can be seen as an
 unfolding of the initial category with families (CwF)
 \cite{Dybjer96internaltype} with certain type formers.
 
-\subsection{The syntax}
+\subsection{The Syntax}
 \label{sec:syntax}
 
 We have a QIIT with four sorts. Types are indexed over contexts:
@@ -877,21 +871,21 @@ these laws as for type subsitution: ${[\id]}$ and ${[\circ]}$.
   & && = \,\, && t \\
   \\
   \\
-  & [\circ] && : && t[\sigma\circ\delta] \\                                
-  & && && && \hspace{2em} && {\rhd\beta_2}^{-1} \\                                                    
-  & && = \,\, && \pi_2\,(\sigma\circ\delta, t[\sigma\circ\delta]) \\                   
-  & && && && && {\idl}^{-1} \\                                                           
-  & && = \,\, && \pi_2\,(\id\circ(\sigma\circ\delta), t[\sigma\circ\delta]) \\      
-  & && && && && {,\circ}^{-1} \\                                                          
-  & && = \,\, && \pi_2\,((\id, t)\circ(\sigma\circ\delta)) \\                          
-  & && && && && \ass^{-1} \\                                                              
-  & && = \,\, && \pi_2\,(((\id, t)\circ\sigma)\circ\delta) \\                          
-  & && && && && {,\circ} \\                                                               
-  & && = \,\, && \pi_2\,((\id\circ\sigma, t[\sigma])\circ\delta) \\                    
-  & && && && && {,\circ} \\                                                              
-  & && = \,\, && \pi_2\,((\id\circ\sigma)\circ\delta, t[\sigma][\delta]) \\            
-  & && && && && {\rhd\beta_2} \\                                                       
-  & && = \,\, && t[\sigma][\delta]                                                     
+  & [\circ] && : && t[\sigma\circ\delta] \\
+  & && && && \hspace{2em} && {\rhd\beta_2}^{-1} \\
+  & && = \,\, && \pi_2\,(\sigma\circ\delta, t[\sigma\circ\delta]) \\
+  & && && && && {\idl}^{-1} \\
+  & && = \,\, && \pi_2\,(\id\circ(\sigma\circ\delta), t[\sigma\circ\delta]) \\
+  & && && && && {,\circ}^{-1} \\
+  & && = \,\, && \pi_2\,((\id, t)\circ(\sigma\circ\delta)) \\
+  & && && && && \ass^{-1} \\
+  & && = \,\, && \pi_2\,(((\id, t)\circ\sigma)\circ\delta) \\
+  & && && && && {,\circ} \\
+  & && = \,\, && \pi_2\,((\id\circ\sigma, t[\sigma])\circ\delta) \\
+  & && && && && {,\circ} \\
+  & && = \,\, && \pi_2\,((\id\circ\sigma)\circ\delta, t[\sigma][\delta]) \\
+  & && && && && {\rhd\beta_2} \\
+  & && = \,\, && t[\sigma][\delta]
 \end{alignat*}
 
 In addition to the substitution calculus, we have an empty {\em
@@ -958,7 +952,7 @@ signature.
 We abbreviate $\Pim\,T\,(\lambda\alpha.B)$ where $B$ has type
 $\Ty\,\Gamma$ as $T\Ram B$.
 
-\subsection{Example signatures}
+\subsection{Example Signatures}
 
 The signature for natural numbers (Section \ref{sec:naturals}) can be
 given by the following context on the left hand side. The right hand
@@ -1011,7 +1005,7 @@ beginning of Section \ref{sec:intro} and Section \ref{sec:conty}).
   &         &&      && \hspace{5.96em}       (4\app 2\app(3\app 2\app 1\app 0))))))        &&         &&        &&                 && \hspace{1.5em} \hphantom{\Id\,Con\,} (ext\app\Gamma\app (\Sigma\app\Gamma\app A\app B))
 \end{alignat*}
 
-\subsection{Defining functions from the syntax}
+\subsection{Defining Functions from the Syntax}
 \label{sec:syntaxfunctions}
 
 In the following sections, we will define functions by induction on
@@ -1393,7 +1387,7 @@ alternative definition is given by \emph{democratic} CwFs
   & \eqreflect && : \Tm\,\Gamma\,(\Eq\,t\,u) \ra t = u
 \end{alignat*}
 
-\subsection{CwF$^\K_{\Eq}$s of algebras}
+\subsection{CwF$^\K_{\Eq}$s of Algebras}
 \label{sec:cwfalg}
 
 Previously given operations on the theory of signatures yield a
@@ -1499,7 +1493,7 @@ for this definition.
   & && \lambda n\,p.\,s^{S0}\,n\sqcdot \ap\,(s^D\,n)\,p\sqcdot s^{S1}\,n^{-1}\big)
 \end{alignat*}
 
-\subsection{Equivalence of initiality and induction}
+\subsection{Equivalence of Initiality and Induction}
 \label{sec:initind}
 
 First, we define initiality and induction in an arbitrary CwF$^\K_{\Eq}$.
@@ -1538,7 +1532,7 @@ $ind, ind' : Induction\,\Gamma$, and $A : \Ty\,\Gamma$, we have
 $\eqreflect\,(ind\,(\Eq\,(ind\,A)\,(ind'\,A)))$ with type $ind\,A =
 ind'\,A$, so by functional extensionality $ind = ind'$.
 
-\subsection{The CwF$^\K_{\Eq}$ model of the theory of signatures}
+\subsection{The CwF$^\K_{\Eq}$ Model of the Theory of Signatures}
 \label{sec:cwfmodel}
 
 For a QIIT signature $\Omega$, in order to show the equivalence of
