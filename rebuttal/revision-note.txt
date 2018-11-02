@@ -1,0 +1,8 @@
+We made the following changes in the final version of the paper:
+
+* Added more comments in the related work section on relationship to
+  Cartmell's generalised algebraic theories and the FoSSaCS 2018 paper
+  about QIITs
+
+* Addressed small suggestions by reviewers (mostly typos, changes in
+  notation, adding one-sentence clarifications)
