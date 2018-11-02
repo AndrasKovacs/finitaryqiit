@@ -1,3 +1,9 @@
+{-
+Paper: section 6
+
+Metatheoretic function space part of the eliminator construction.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 import Syntax as S

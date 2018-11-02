@@ -1,3 +1,8 @@
+{-
+Paper: section 4
+
+Universe part of the initial algebra construction.
+-}
 
 {-# OPTIONS --rewriting #-}
 

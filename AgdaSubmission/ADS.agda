@@ -1,3 +1,9 @@
+{-
+Paper: section 4, section 6
+
+This file defines algebras, displayed algebras and sections of displayed algebras for QIITs.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 {- Algebra-Displayed Algebra-Section model of the theory of signatures -}

@@ -1,3 +1,7 @@
+{-
+Template for writing models of the theory of signatures. See README for usage.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 module ModelTemplate where

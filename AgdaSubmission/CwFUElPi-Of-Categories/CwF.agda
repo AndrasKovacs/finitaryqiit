@@ -1,6 +1,10 @@
-{-# OPTIONS --rewriting #-}
+{-
+Paper: section 7.4
 
-{- CwF structure on the category of strict categories -}
+CwF structure on the category of strict categories.
+-}
+
+{-# OPTIONS --rewriting #-}
 
 open import Level
 module CwFUElPi-Of-Categories.CwF {α β : Level} where

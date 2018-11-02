@@ -1,3 +1,8 @@
+{-
+Paper: section 4
+
+Non-inductive (metatheoretic) function space part of the initial algebra construction.
+-}
 
 {-# OPTIONS --rewriting #-}
 

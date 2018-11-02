@@ -1,3 +1,9 @@
+{-
+Paper: section 4
+
+Inductive function space part of the initial algebra construction.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 import Syntax as S
@@ -11,7 +17,7 @@ open import InitialAlg.CwF Ω
 open import InitialAlg.ElU Ω
 
 
--- Inductive function
+-- Inductive functions
 --------------------------------------------------------------------------------
 
 Π : {Γ : S.Con} {Γᶜ : Con Γ} {a : S.Tm Γ (S.U {Γ})} (aᶜ : Tm {Γ} Γᶜ

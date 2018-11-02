@@ -1,3 +1,8 @@
+{-
+Paper: section 6
+
+CwF part of the eliminator construction.
+-}
 
 {-# OPTIONS --rewriting #-}
 

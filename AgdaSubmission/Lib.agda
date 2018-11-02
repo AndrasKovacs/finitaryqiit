@@ -7,6 +7,7 @@ open import Relation.Binary.PropositionalEquality public using (_≡_; refl)
 open import Data.Empty public
 
 {-# BUILTIN REWRITE _≡_ #-}
+
 postulate cheat : ∀ {α}{A : Set α} → A
 
 infix 3 _∋_

@@ -1,3 +1,8 @@
+{-
+Postulated eliminators of the initial algebra construction (section 4 in paper).
+Eliminators were copied from DependentModelTemplate (see README for usage).
+-}
+
 {-# OPTIONS --rewriting #-}
 
 import Syntax as S

@@ -1,5 +1,10 @@
-{-# OPTIONS --without-K #-}
+{-
+Paper: section 7.3
 
+A proof that initiality is equivalent to induction in any CwF-K-Eq.
+-}
+
+{-# OPTIONS --without-K #-}
 open import StrictLib
 open import Data.Nat
 import Level as L

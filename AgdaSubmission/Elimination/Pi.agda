@@ -1,3 +1,9 @@
+{-
+Paper: section 6
+
+Incomplete Π type formation part of the eliminator construction.
+-}
+
 {-# OPTIONS --rewriting --allow-unsolved-metas #-}
 
 import Syntax as S
@@ -22,16 +28,5 @@ open import Elimination.ElU Ω ω
 Π {Γ}{Γᴱ}{a} aᴱ {B} Bᴱ ν t α =
   let α'  = coe ((ᴬ (Tmʳ a) & (Subᶜ Ω ν S.id ⁻¹)) ◾ Tmᶜ Ω a ν ⁻¹ ) α
       p1  = S.app t S.[ S.id S.,s α' ]t
-      p2  = Bᴱ (ν S.,s α') (coe cheat p1) -- REWRITE spec
+      p2  = Bᴱ (ν S.,s α') (coe {!!} p1) -- REWRITE specialization needed
   in {!aᴱ ν!}
-
-
--- λ α₁ →
---   coe
---   (ᴰ (Tmʳ a) (ᴬ (Subʳ ν) (Conᶜ Ω Ω S.id))
---    (ᴰ (Subʳ ν) (Conᶜ Ω Ω S.id) ω)
---    &
---    (lower & Tmᶜ Ω (coe (Tmᶜ Ω (a S.[ ν ]t) S.id ⁻¹) α₁) S.id ⁻¹ ◾
---     coecoe⁻¹ (Tmᶜ Ω (a S.[ ν ]t) S.id) α₁))
---   (lower
---    (Tmʳ (coe (Tmᶜ Ω (a S.[ ν ]t) S.id ⁻¹) α₁) .ᴰ (Conᶜ Ω Ω S.id) ω))

@@ -1,3 +1,7 @@
+{-
+Template for writing dependent/displayed models of the theory of signatures. See README for usage.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 module DependentModelTemplate where
@@ -556,6 +560,8 @@ postulate
      {S.U {Δ}} a σ)} (_[_]T {Γ} {Γᴹ} {Δ} {Δᴹ} {S.El {Δ} a} (El {Δ}
      {Δᴹ} {a} aᴹ) {σ} σᴹ)})))))))
 
+  -- -- Note: we can omit Π[] and app[] because nothing uses them in this development.
+
   -- Π[] : ∀{Γ}{Γᴹ : Con Γ}
   --        {Δ}{Δᴹ : Con Δ}
   --        {σ}{σᴹ : Sub Γᴹ Δᴹ σ}
@@ -574,7 +580,6 @@ postulate
     {Γᴹ} {a} aᴹ {B} Bᴹ) t → Tm {Γ S.▶ S.El {Γ} a} (_▶_ {Γ} Γᴹ {S.El
     {Γ} a} (El {Γ} {Γᴹ} {a} aᴹ)) {B} Bᴹ (S.app {Γ} {a} {B} t)
 
-  -- TODO
   -- app[] : ∀{Γ Δ}{σ : Sub Γ Δ}{a : Tm Δ U}{B : Ty (Δ ▶ El a)}{t : Tm Δ (Π a B)}
   --         → tr2 (λ A → Tm (Γ ▶ A)) El[] refl (app t [ σ ^ El a ]t)
   --         ≡ app (tr (Tm _) Π[] (t [ σ ]t))

@@ -1,5 +1,8 @@
+{-
+Paper: section 7.4
 
-{- Universe (of set-valued functors) in ℂat, part of QIIT code syntax #-}
+Universe (of set-valued functors) in the category of strict categories.
+-}
 
 open import Level
 
@@ -8,14 +11,13 @@ module CwFUElPi-Of-Categories.ElU {α : Level} where
 open import StrictLib hiding (id; _∘_)
 open import CwFUElPi-Of-Categories.CwF {suc α}{α} public
 
--- U ~ const 𝕊et
--- hence: Tm Γ U ~ [Γ, 𝕊et]
+-- U ~ const Set
+-- hence: Tm Γ U ~ [Γ, Set]
 U : {Γ : Con {suc α}{α}} → Ty Γ
 U {Γ} = mkTy (λ i → Set α) (λ i _ j → i → j) (λ x → x) (λ f g x → f (g x))
              refl̃ refl̃ refl̃
 
 abstract
--- postulate
   U[] : ∀{Γ Δ}(σ : Sub  Γ Δ) → U [ σ ]T ≡ U
   U[] {Γ}{Δ} σ = mkTy≡
     (λ _ → refl)
@@ -25,7 +27,7 @@ abstract
         uncoe ((λ f₁ → ii₀ → kk₀) & (σ.∘ ⁻¹)) (λ x → ff₀ (gg₀ x))}
     where module σ = Sub σ; module Γ = Con Γ; module Δ = Con Δ
 
--- [Γ, 𝕊et] are "discrete" displayed categories
+-- [Γ, Set] are "discrete" displayed categories
 -- analogously to how sets are discrete categories
 El : ∀{Γ}(a : Tm  {γ = suc α}{α} Γ U) → Ty Γ
 El {Γ} a = mkTy
@@ -120,7 +122,8 @@ infixl 5 _^U
 _^U : {Γ Δ : Con}(σ : Sub Γ Δ) → Sub (Γ ▶ U) (Δ ▶ U)
 _^U {Γ}{Δ} σ = (σ ∘ₛ wk) ,s coe (Tm (Γ ▶ U) & (U[] wk ◾ U[] (σ ∘ₛ wk) ⁻¹)) vz
 
--- Not enough memory to check
+-- -- Would be a helper function, but there's not enough memory to check.
+
 -- infixl 5 _^U
 -- _^El : {Γ Δ : Con}(σ : Sub Γ Δ)(a : Tm Δ U) → Sub (Γ ▶ El (coe (Tm Γ & U[] σ) (a [ σ ]t))) (Δ ▶ El a)
 -- _^El {Γ}{Δ} σ a = (σ ∘ₛ wk) ,s

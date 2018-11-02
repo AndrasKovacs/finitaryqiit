@@ -1,3 +1,9 @@
+{-
+Paper: section 4
+
+Identity type structure part of the initial algebra construction.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 import Syntax as S

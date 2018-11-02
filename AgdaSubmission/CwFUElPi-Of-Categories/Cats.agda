@@ -1,3 +1,8 @@
+{-
+Paper: section 7.4
+
+Basic definitions and helpers about strict categories.
+-}
 
 module CwFUElPi-Of-Categories.Cats where
 

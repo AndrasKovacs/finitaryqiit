@@ -1,11 +1,14 @@
+{-
+Paper: section 7.2
+
+This file contains a part of the CwF-K-Eq of natural number algebras,
+and a (specialized to this case) proof that induction is logically
+equivalent to initiality.
+-}
 
 {-# OPTIONS --without-K #-}
 
 open import StrictLib
-
--- This file contains a part of the CwF-K-Eq of natural number algebras,
--- and a (specialized to this case) proof that induction is logically
--- equivalent to initiality.
 
 Con : Set₁
 Con = Σ Set λ N → N × (N → N)
@@ -68,8 +71,11 @@ Initial⇒Induction Γ init A =
 K : Con → ∀ {Γ} → Ty Γ
 K (N , z , s) {Γ} = (λ _ → N) , z , (λ _ → s)
 
-K→ : ∀ {Γ Δ} → Tm Γ (K Δ) → Sub Γ Δ
-K→ {Γ}{Δ} = id
+unk : ∀ {Γ Δ} → Tm Γ (K Δ) → Sub Γ Δ
+unk {Γ}{Δ} = id
+
+-- likewise, (mk : Sub Γ Δ → Tm Γ (K Δ)) is just id,
+-- and thus β and η rules for K are refl.
 
 -- We can make do with only equality of Sub-s, if we don't want to
 -- prove propositionality of induction.
@@ -93,14 +99,14 @@ reflect {N₀ , z₀ , s₀}{N₁ , z₁ , s₁}
 
 Induction⇒Initial : ∀ Γ → Induction Γ → Initial Γ
 Induction⇒Initial Γ ind Δ =
-  K→ {Γ}{Δ} (ind (K Δ)) ,
-  λ σ → reflect (ind (Eq {Γ}{Δ} σ (K→ {Γ}{Δ} (ind (K Δ)))))
+  unk {Γ}{Δ} (ind (K Δ)) ,
+  λ σ → reflect (ind (Eq {Γ}{Δ} σ (ind (K Δ))))
 
 -- Some other K/Eq operations
 ------------------------------------------------------------
 
-K← : ∀ {Γ Δ} → Sub Γ Δ → Tm Γ (K Δ)
-K← {Γ}{Δ} = id
+mk : ∀ {Γ Δ} → Sub Γ Δ → Tm Γ (K Δ)
+mk {Γ}{Δ} = id
 
 Refl : ∀ {Γ Δ} (σ : Sub Γ Δ) → Tm Γ (Eq {Γ}{Δ} σ σ)
 Refl σ = (λ _ → refl) , (UIP _ _) , (λ _ → UIP _ _)

@@ -1,5 +1,8 @@
+{-
+Paper: section 7.4
 
-{- Π type formation #-}
+Inductive Π type formation for categories.
+-}
 
 open import Level
 

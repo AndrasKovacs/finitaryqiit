@@ -1,3 +1,16 @@
+{-
+Paper: section 3.1.
+
+This file postulates the syntax of the theory of QIIT signatures, plus
+REWRITE rules to reflect computation rules to definitional equalities.
+
+The derived equalities at the end of the file are not proven
+here. This is a TODO; nonetheless these are either admissible
+equations (which are easily seen to be admissible, and also proven in
+Ambrus Kaposi's PhD thesis), or just specializations of other rules to
+particular arguments.
+-}
+
 {-# OPTIONS --rewriting #-}
 
 module Syntax where
@@ -6,9 +19,10 @@ open import Lib hiding (id; _∘_)
 
 infixl 7 _[_]T
 infixl 5 _,s_
-infix  6 _∘_
+infixr 6 _∘_
 infixl 8 _[_]t
 infixl 3 _▶_
+infixl 8 _$_
 
 postulate
   Con : Set

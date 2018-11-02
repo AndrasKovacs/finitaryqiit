@@ -1,3 +1,14 @@
+{-
+Paper: section 5
+
+This file contains the definition of homomorphisms for QIIT-algebras
+(-ᴹ). We restate the definition of algebras, since it is much easier
+to define a non-dependent model containing both algebras and morphisms
+than to give morphisms as a dependent model which refers to a
+pre-existing algebra model.
+
+-}
+
 {-# OPTIONS --rewriting #-}
 
 module AM where
