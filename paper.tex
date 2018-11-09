@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{pdflscape}
 \usepackage{multirow,bigdelim}
+\usepackage{hyperref}
 \input{abbrevs.tex}
 \usepackage{tikz}
 \usetikzlibrary{arrows,
@@ -561,7 +562,7 @@ Section \ref{sec:conclusions}.
 In the following table we summarize the operations which we define in
 Sections \ref{sec:algebras}--\ref{sec:eliminator}. $\Gamma$ denotes a
 signature. The full definitions of these operations are given in
-Appendix \ref{sec:app}.
+Appendix A.
 
 \bgroup
 \def\arraystretch{1.1}%  1 is the default, change whatever you need
@@ -690,8 +691,8 @@ displayed categories.
 
 Our metatheory is Martin-L{\"o}f type theory with functional
 extensionality and uniqueness of identity proofs (UIP). In this
-section we describe the notation used in this paper and the accompanying
-Agda formalisation.
+section we describe the notation used in this paper and the
+accompanying technical appendix and Agda formalisation.
 
 Definitional equality is denoted by $\equiv$. We have a cumulative
 hierarchy of Russell-style universes $\Set_i$ where we usually omit
@@ -749,13 +750,15 @@ section). In this paper, we treat these equalities as definitional (we
 don't write transports along them). Analogously, we add rewrite rules
 for them in the formalisation.
 
-The Agda formalisation has been checked using Agda 2.5.4. It covers
-sections \ref{sec:syntax}, \ref{sec:syntaxfunctions},
-\ref{sec:algebras}, the definition of homomorphisms from
-\ref{sec:recursor}, and also \ref{sec:eliminator},
-\ref{sec:definingcwf}, \ref{sec:cwfalg}, \ref{sec:initind}, and part
-of \ref{sec:cwfmodel}. The formalisation also includes additional
-documentation concerning technicalities.
+The Agda formalisation has been checked using Agda 2.5.4. It is
+available at
+\url{https://bitbucket.org/akaposi/finitaryqiit/src/master/}, together
+with a technical appendix. The Agda formalisation covers sections
+\ref{sec:syntax}, \ref{sec:syntaxfunctions}, \ref{sec:algebras}, the
+definition of homomorphisms from \ref{sec:recursor}, and also
+\ref{sec:eliminator}, \ref{sec:definingcwf}, \ref{sec:cwfalg},
+\ref{sec:initind}, and part of \ref{sec:cwfmodel}. The formalisation
+also includes additional documentation concerning technicalities.
 
 
 %--------------------------------------------------------------------
@@ -1010,9 +1013,8 @@ In the following sections, we will define functions by induction on
 the syntax of the theory of signatures. This amounts to saying what
 $\Con$, $\Ty$, $\Tms$ and $\Tm$ are mapped to and providing cases for
 all of the 35 constructors from $\cdot$ to ${\appm[]}$. Examples of
-full definitions of some of these functions are given in Appendix
-\ref{sec:app}, the simplest one being the standard interpretation
-$\blank^\A$.
+full definitions of some of these functions are given in Appendix A,
+the simplest one being the standard interpretation $\blank^\A$.
 
 We refer to \cite{ttintt} for a full definition of the elimination
 principle of a similar type theory. Alternatively, the elimination
@@ -1069,7 +1071,7 @@ and we have $e^\A:(\gamma:\Gamma^\A)\ra
 t^\A\,\gamma=u^\A\,\gamma$. Hence $(\reflect\,e)^\A$ is just given by
 $\funext$. All the other equality constructors are interpreted by
 $\refl$. The full definition for every constructor of the theory of
-signatures is given in Appendix \ref{sec:app}.
+signatures is given in Appendix A.
 
 In the example of natural numbers the carrier of the initial algebra
 is given by $\Tm\,\Delta\,(\El\,Nat)$ where $\Delta$ is the signature
@@ -1115,7 +1117,7 @@ Equalities of terms and substitutions are trivial in the $\blank^\C$
 interpretation, as they are equalities between equalities and these
 can be just given by $\UIP$.
 
-We refer the interested reader to Appendix \ref{sec:app} for the full
+We refer the interested reader to Appendix A for the full
 definition of this and later operations.
 
 In the following sections, we will make use of the following two
@@ -1269,8 +1271,7 @@ Here the interpretation of $\U$, $\El$ and $\Pi$ are the usual ones,
 $\U$ becomes predicate space ($\U^\D\,\gamma^D\,T :\equiv T\ra\Set$),
 $\El\,a$ is just a witness of the predicate for $a$, and function
 space is interpreted as the predicate which expresses preservation of
-logical predicates. The details can be found in Appendix
-\ref{sec:app}.
+logical predicates. The details can be found in Appendix A.
 
 Sections are dependent variants of the homomorphism interpretation
 $\blank^\M$ described in the previous section. A context becomes a
@@ -1304,7 +1305,7 @@ interpretation, we apply the logical predicate interpretation:
 $(\coe\,({a^\C\,\id}^{-1})\,\alpha)^\D\,\omega^D$ has type
 $a^\D\,\omega^\D\,(\alpha^\A\,\con)$ which is almost right, so we need
 to coerce along $\alpha^\C\,\id$ which witnesses $\alpha^\A\,\con =
-\alpha$, and we are finished. For details see Appendix \ref{sec:app}
+\alpha$, and we are finished. For details see Appendix A
 and the Agda formalisation.
 
 Once we defined the $\blank^\E$ operation, we recover the eliminator
@@ -1595,9 +1596,9 @@ node distance = 0pt,
 \draw           (m-1-1.south west) -- (m-1-13.south east);
 \draw           (m-1-15.south west) -- (m-1-17.south east);
 
-\draw (m-2-2.north west) rectangle (m-17-6.south west) node[pos=.5] {\rotatebox{90}{Appendix \ref{sec:app}}};
+\draw (m-2-2.north west) rectangle (m-17-6.south west) node[pos=.5] {\rotatebox{90}{Appendix A}};
 
-\draw (m-2-15.north west) rectangle (m-17-18.south west) node[pos=.5] {\rotatebox{90}{Appendix \ref{sec:app}}};
+\draw (m-2-15.north west) rectangle (m-17-18.south west) node[pos=.5] {\rotatebox{90}{Appendix A}};
 
 % \draw (m-2-2.north west) rectangle (m-17-3.south west) node[pos=.5] {\rotatebox{90}{Section \ref{sec:algebras}}};
 % \draw (m-2-3.north west) rectangle (m-17-4.south west) node[pos=.5] {\rotatebox{90}{Section \ref{sec:eliminator}}};
@@ -1608,10 +1609,10 @@ node distance = 0pt,
 % \draw (m-2-16.north west) rectangle (m-17-17.south west) node[pos=.5] {\rotatebox{90}{Section \ref{sec:recursor}}};
 % \draw (m-2-17.north west) rectangle (m-17-18.south west) node[pos=.5] {\rotatebox{90}{Section \ref{sec:eliminator}}};
 
-\draw (m-2-2.north west) rectangle (m-5-14.south west) node[pos=.5] {Appendix \ref{sec:motives}};
+\draw (m-2-2.north west) rectangle (m-5-14.south west) node[pos=.5] {Appendix B};
 
-\draw (m-9-2.north west) rectangle (m-10-14.south west) node[pos=.5] {Appendix \ref{sec:motives}};
-\draw (m-12-2.north west) rectangle (m-12-14.south west) node[pos=.5] {Appendix \ref{sec:motives}};
+\draw (m-9-2.north west) rectangle (m-10-14.south west) node[pos=.5] {Appendix B};
+\draw (m-12-2.north west) rectangle (m-12-14.south west) node[pos=.5] {Appendix B};
 
 \draw[BC={},decoration={mirror}]    (m-2-1.north -| m.west) --
                     node[left=3mm] {CwF (24)}
@@ -1671,17 +1672,16 @@ interpret the syntax, and later operations can depend on previous
 ones. In Sections \ref{sec:algebras}--\ref{sec:eliminator} we used the
 column-based method to describe the first four columns of this
 table. These were given by $\blank^\A$, $\blank^\D$, $\blank^\M$, and
-$\blank^\S$ (their full definition can be found in Appendix
-\ref{sec:app}).
+$\blank^\S$ (their full definition can be found in Appendix A).
 
 In this section we follow the row-based approach and describe the rows
 of the model informally, while giving the full definition of the first
 4 rows ($\Con$, $\Ty$, $\Tms$, $\Tm$) and the rows for $\U$, $\El$ and
-$\Pi$ in Appendix \ref{sec:motives}. These are the most interesting
-parts of the construction. The rest of the construction is tedious and
-not very enlightening. The first 4 columns are fully formalised in
-Agda and most parts of the category-columns from the CwF-columns are
-also formalised.
+$\Pi$ in Appendix B. These are the most interesting parts of the
+construction. The rest of the construction is tedious and not very
+enlightening. The first 4 columns are fully formalised in Agda and
+most parts of the category-columns from the CwF-columns are also
+formalised.
 
 The \textbf{CwF part} of the theory of signatures has to be
 interpreted as the CwF of CwF$^\K_{\Eq}$s. Hence, $\Con$ is
@@ -1848,506 +1848,6 @@ EUTypes CA15123.
 %% Bibliography
 \bibliography{references}
 
-%% Appendix
-\appendix
-\begin{landscape}
-\section{Definitions of the operations from Sections \ref{sec:algebras}--\ref{sec:eliminator}}
-\label{sec:app}
 
-In this appendix we give the full definitions of the operations
-$\blank^\A$, $\blank^\C$ (Section \ref{sec:algebras}), $\blank^\M$,
-$\blank^\R$ (Section \ref{sec:recursor}), $\blank^\D$, $\blank^\S$,
-$\blank^\E$ (Section \ref{sec:eliminator}).
-
-{\footnotesize
-\begin{alignat*}{10}
-  & \text{\textbf{Syntax}}                                                                             && \rlap{$\text{\textbf{Algebras}}$} &&                                                      && \rlap{$\text{Assuming $\Omega:\Con$, the \textbf{initial $\Omega$-algebra} is given by $\con_\Omega:\equiv \Omega^\C\,\id$}$}                                                                                          \\
-  & \Gamma:\Con                                                                                        && \Gamma^\A && : \Set                                                                             && \Gamma^\C && : \Tms\,\Omega\,\Gamma\ra\Gamma^\A                                                                                          \\
-  & A:\Ty\,\Gamma                                                                                      && A^\A && : \Gamma^\A\ra\Set                                                                      && A^\C && : (\nu:\Tms\,\Omega\,\Gamma)\ra\Tm\,\Omega\,(A[\nu])\ra A^\A\,(\Gamma^\C\,\nu)                                                   \\
-  & \sigma:\Tms\,\Gamma\,\Delta                                                                        && \sigma^\A && : \Gamma^\A\ra\Delta^\A                                                            && \sigma^\C && : (\nu:\Tms\,\Omega\,\Gamma)\ra \Delta^\C\,(\sigma\circ\nu)=\sigma^\A\,(\Gamma^\C\,\nu)                                     \\
-  & t:\Tm\,\Gamma\,A                                                                                   && t^\A && : (\gamma:\Gamma^\A)\ra A^\A\,\gamma                                                    && t^\C && : (\nu:\Tms\,\Omega\,\Gamma)\ra A^\C\,\nu\,(t[\nu])=t^\A\,(\Gamma^\C\,\nu)                                                       \\
-  & \cdot:\Con                                                                                         && \cdot^\A && :\equiv \top                                                                        && \cdot^\C\,\nu && :\equiv \tt                                                                                                             \\
-  & \Gamma\rhd A:\Con                                                                                  && (\Gamma\rhd A)^\A && :\equiv (\gamma:\Gamma^\A)\times A^\A\,\gamma                              && (\Gamma\rhd A)^\C\,\nu && :\equiv (\Gamma^\C\,(\pi_1\,\nu),A^\C\,(\pi_1\,\nu)\,(\pi_2\,\nu))                                             \\
-  & (A:\Ty\,\Delta)[\sigma:\Tms\,\Gamma\,\Delta]:\Ty\,\Gamma                                           && (A[\sigma])^\A\,\gamma && :\equiv A^\A\,(\sigma^\A\,\gamma)                                     && (A[\sigma])^\C\,\nu\,t && :\equiv \tr_{A^\A}\,(\sigma^\C\,\nu)\,(A^\C\,(\sigma\circ\nu)\,t)                                              \\
-  & \id : \Tms\,\Gamma\,\Gamma                                                                         && \id^\A\,\gamma && :\equiv \gamma                                                                && \id^\C\,\nu && : \Gamma^\C\,\nu = \Gamma^\C\,\nu                                                                                                             \\
-  & (\sigma:\Tms\,\Theta\,\Delta)\circ(\delta:\Tms\,\Gamma\,\Theta):\Tms\,\Gamma\,\Delta               && (\sigma\circ\delta)^\A\,\gamma && :\equiv \sigma^\A\,(\delta^\A\,\gamma)                        && (\sigma\circ\delta)^\C\,\nu && : \Delta^\C\,(\sigma\circ\delta\circ\nu) \overset{\sigma^\C\,(\delta\circ\nu)}{=} \sigma^\A\,(\Theta^\C\,(\delta\circ\nu)) \overset{\delta^\C\,\nu}{=} \sigma^\A\,(\delta^\A\,(\Gamma^\C\,\nu)) \\
-  & \epsilon : \Tms\,\Gamma\,\cdot                                                                     && \epsilon^\A\,\gamma && :\equiv \tt                                                              && \epsilon^\C\,\nu && : \tt = \tt                                                                                                        \\
-  & (\sigma:\Tms\,\Gamma\,\Delta) , (t:\Tm\,\Gamma\,(A[\sigma])):\Tms\,\Gamma\,(\Delta\rhd A)\hspace{1em}          && (\sigma, t)^\A\,\gamma && :\equiv (\sigma^\A\,\gamma, t^\A\,\gamma)                             && (\sigma,t)^\C\,\nu && : (\Gamma^\C\,(\sigma\circ\nu), A^\C\,(\sigma\circ\nu)\,(t[\nu])) \overset{\sigma^\C\,\nu, t^\C\,\nu}{=} (\sigma^\A\,(\Gamma^\C\,\nu), t^\A\,(\Gamma^\C\,\nu))                                                                        \\
-  & \pi_1\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tms\,\Gamma\,\Delta                                  && (\pi_1\,\sigma)^\A\,\gamma && :\equiv \proj_1\,(\sigma^\A\,\gamma)                              && (\pi_1\,\sigma)^\C\,\nu && : \Delta^\C\,(\pi_1\,(\sigma\circ\nu)) \overset{\sigma^\C\,\nu}{=} \proj_1\,(\sigma^\A\,(\Gamma^\C\,\nu))                                                                        \\
-  & \pi_2\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tm\,\Gamma\,(A[\pi_1\,\sigma])                       && (\pi_2\,\sigma)^\A\,\gamma && :\equiv \proj_2\,(\sigma^\A\,\gamma)                              && (\pi_2\,\sigma)^\C\,\nu && : A^\C\,(\pi_1\,(\sigma\circ\nu))\,(\pi_2\,(\sigma\circ\nu)) \overset{\sigma^\C\,\nu}{=} \proj_2\,(\sigma^\A\,(\Gamma^\C\,\nu))                                                                           \\
-  & (t:\Tm\,\Delta\,A)[\sigma:\Tms\,\Gamma\,\Delta]:\Tm\,\Gamma\,(A[\sigma])                           && (t[\sigma])^\A\,\gamma && :\equiv t^\A\,(\sigma^\A\,\gamma)                                     && (t[\sigma])^\C\,\nu && : A^\C\,(\sigma\circ\nu)\,(t [\sigma\circ\nu]) \overset{t^\C(\sigma\circ\nu)}{=} t^\A\,(\delta^\C\,(\sigma\circ\nu))\overset{\sigma^\C\,\nu}{=}t^\A\,(\sigma^\A(\Gamma^\C\,\nu))  \\
-  & [\id] : A[\id] = A                                                                                 && [\id]^\A && :\equiv \refl                                                                       && [\id]^\C && : A^\C\,\nu\,t = A^\C\,\nu\,t                                                                                                                \\
-  & [\circ] : A[\sigma \circ \delta] = A[\sigma][\delta]                                               && [\circ]^\A && :\equiv \refl                                                                     && [\circ]^\C && : A^\C\,(\sigma\circ\delta\circ\nu)\,t = A^\C\,(\sigma\circ\delta\circ\nu)\,t                                                       \\
-  & \ass : (\sigma \circ \delta) \circ \nu = \sigma \circ (\delta \circ \nu)                           && \ass^\A && :\equiv \refl                                                                        && \ass^\C && :\equiv \UIP                                                                                              \\
-  & \idl : \id\circ\sigma = \sigma                                                                     && \idl^\A && :\equiv \refl                                                                        && \idl^\C && :\equiv \UIP                                                                                              \\
-  & \idr : \sigma\circ\id = \sigma                                                                     && \idr^\A && :\equiv \refl                                                                        && \idr^\C && :\equiv \UIP                                                                                              \\
-  & {\cdot\eta} : \{\sigma : \Tms\,\Gamma\,\cdot\} \ra \sigma = \epsilon                               && {\cdot\eta}^\A && :\equiv \refl                                                                 && {\cdot\eta}^\C && :\equiv \UIP                                                                                       \\
-  & {\rhd\beta_1} : \pi_1\,(\sigma, t) = \sigma                                                        && {\rhd\beta_1}^\A && :\equiv \refl                                                               && {\rhd\beta_1}^\C&& :\equiv \UIP                                                                                      \\
-  & {\rhd\beta_2} : \pi_2\,(\sigma, t) = t                                                             && {\rhd\beta_2}^\A && :\equiv \refl                                                               && {\rhd\beta_2}^\C && :\equiv \UIP                                                                                     \\
-  & {\rhd\eta} : (\pi_1\,\sigma, \pi_2\,\sigma) = \sigma                                               && {\rhd\eta}^\A && :\equiv \refl                                                                  && {\rhd\eta}^\C&& :\equiv \UIP                                                                                         \\
-  & {,\circ} : (\sigma, t)\circ\delta = (\sigma\circ\delta, t[\delta])                                 && {,\circ}^\A && :\equiv \refl                                                                    && {,\circ}^\C && :\equiv \UIP                                                                                          \\
-  & \U : \Ty\,\Gamma                                                                                   && \U^\A\,\gamma && :\equiv \Set                                                                   && \U^\C\,\nu\,a && :\equiv \Tm\,\Omega\,(\El\,a)                                                                                        \\
-  & \El\,(a: \Tm\,\Gamma\,\U): \Ty\,\Gamma                                                             && (\El\,a)^\A\,\gamma && :\equiv a^\A\,\gamma                                                     && (\El\,a)^\C\,\nu\,t    && :\equiv \coe\,(a^\C\,\nu : \Tm\,\Omega\,(\El\,a)=a^\A\,(\Gamma^\C\,\nu))\,t                                                                                   \\
-  & {\U[]} : \U[\sigma] = \U                                                                           && {\U[]}^\A && :\equiv \refl                                                                      && {\U[]}^\C && : \Tm\,\Omega\,a=\Tm\,\Omega\,a                                                  \\
-  & {\El[]} : (\El\,a)[\sigma] = \El\,(a[\sigma])                                                      && {\El[]}^\A && :\equiv \refl                                                                     && {\El[]}^\C && : t = t                                                                                        \\
-  & \Pi\,(a:\Tm\,\Gamma\,\U)(B:\Ty\,(\Gamma\rhd\El\,a)):\Ty\,\Gamma                                    && (\Pi\,a\,B)^\A\,\gamma && :\equiv (\alpha:a^\A\,\gamma)\ra B^\A\,(\gamma, \alpha) \hspace{1em}  && (\Pi\,a\,B)^\C\,\nu\,t && :\equiv \lambda\alpha.B^\C\,(\nu,\coe\,({a^\C\,\nu^{-1}})\,\alpha)\,(t\app \coe\,({a^\C\,\nu^{-1}})\,\alpha)   \\
-  & \APP\,(t:\Tm\,\Gamma\,(\Pi\,a\,B)):\Tm\,(\Gamma\rhd\El\,a)\,B\hspace{1em}                          && (\APP\,t)^\A\,(\gamma,\alpha) && :\equiv t^\A\,\gamma\,\alpha                                    && (\APP\,t)^\C\,\nu    && : B^\C\,\nu\,((\APP\,t)[\nu]) \overset{t^\C\,(\pi_1\,\nu)}{=} t^\A\,(\Gamma^\C\,(\pi_1\,\nu))\,(\pi_2\,\nu)                                                                                                          \\
-  & {\Pi[]} : (\Pi\,a\,B)[\sigma] = \Pi\,(a[\sigma])\,(B[\sigma^\uparrow])                              && {\Pi[]}^\A && :\equiv \refl                                                                    &&  {\Pi[]}^\C && : \lambda\alpha.B^\C\,(\sigma\circ\nu,\alpha)\,(t\app\alpha) = \lambda\alpha.B^\C\,(\sigma\circ\nu,\alpha)\,(t\app\alpha)                                                                                                                   \\
-  & {\APP[]} : (\APP\,t)[\sigma\uparrow] = \APP\,(t[\sigma])                                           && {\APP[]}^\A && :\equiv \refl                                                                    && {\APP[]}^\C && :\equiv \UIP                                                                                          \\
-  & \Id\,(a:\Tm\,\Gamma\,\U)\,(t\,u:\Tm\,\Gamma\,(\El\,a)):\Ty\,\Gamma                                 && (\Id\,a\,t\,u)^\A\,\gamma && :\equiv (t^\A\,\gamma=u^\A\,\gamma)                                && (\Id\,a\,t\,u)^\C\,\nu\,e && : t^\A\,(\Gamma^\C\,\nu)\overset{t^\C\,\nu}{=} t[\nu] \overset{\reflect\,e}{=} u[\nu] \overset{u^\C\,\nu}{=} u^\A\,(\Gamma^\C\,\nu)                                                                                                    \\
-  & \reflect\,(e:\Tm\,\Gamma\,(\Id\,a\,t\,u)): t = u                                                   && (\reflect\,e)^\A && :\equiv \funext\,e^\A                                                       && (\reflect\,e)^\C && :\equiv \UIP                                                                                                              \\
-  & {\Id[]} : (\Id\,a\,t\,u)[\sigma] = \Id\,(a[\sigma])\,(t[\sigma])\,(u[\sigma])                      && {\Id[]}^\A && :\equiv \refl                                                                     && {\Id[]}^\C && :\equiv \UIP                                                                                                                    \\
-  & \Pim\,(T:\Set)\,(B:T\ra\Ty\,\Gamma):\Ty\,\Gamma                                                    && (\Pim\,T\,B)^\A\,\gamma && :\equiv (\alpha:T)\ra (B\,\alpha)^\A\,\gamma                         && (\Pim\,T\,B)^\C\,\nu\,t && :\equiv \lambda\alpha.(B\,\alpha)^\C\,\nu\,(t\appm\alpha)                                                                                                      \\
-  & (t:\Tm\,\Gamma\,(\Pim\,T\,B))\appm(\alpha:T):\Tm\,\Gamma\,(B\,\alpha)                              && (t\appm\alpha)^\A\,\gamma && :\equiv t^\A\,\gamma\,\alpha                                       && (t\appm\alpha)^\C\,\nu    && : (B\,\alpha)^\C\,\nu\,(t[\nu]\appm\alpha)\overset{t^\C\,\nu}{=}t^\A\,(\Gamma^\C\,\nu)\,\alpha                                                                                                      \\
-  & {\Pim[]} : (\Pim\,T\,B)[\sigma] = \Pim\,T\,(\lambda \alpha.(B\,\alpha)[\sigma])                    && {\Pim[]}^\A && :\equiv \refl                                                                    && {\Pim[]}^\C && : \lambda\alpha.(B\,\alpha)^\C\,(\sigma\circ\nu)\,(t\appm\alpha) =                                                                                                                    \\
-  & && && && && \hspace{1.5em} \lambda\alpha.(B\,\alpha)^\C\,(\sigma\circ\nu)\,(t\appm\alpha)(\Pim\,T\,(\lambda\alpha.(B\,\alpha)[\sigma]))^\C\,\nu\,t                                                                                                                   \\
-  & {\appm[]} : (t\appm\alpha)[\sigma] = (t[\sigma])\mathop{\appm}\alpha                               && {\appm[]}^\A && :\equiv \refl                                                                   && {\appm[]}^\C && :\equiv \UIP
-\end{alignat*}
-
-\newpage
-
-\begin{alignat*}{10}
-  & \text{\textbf{Syntax}}                                                                                && \rlap{$\text{\textbf{Homomorphisms}}$} &&                                                                                                                                       \\
-  & \Gamma:\Con                                                                                           && \Gamma^\M && : \Gamma^\A\ra\Gamma^\A\ra\Set                                                                                                                                     \\
-  & A:\Ty\,\Gamma                                                                                         && A^\M && : \Gamma^\M\,\gamma^\0\,\gamma^\1\ra A^\A\,\gamma^\0\ra A^\A\,\gamma^\1\Set                                                                                             \\
-  & \sigma:\Tms\,\Gamma\,\Delta                                                                           && \sigma^\M && : \Gamma^\M\,\gamma^\0\,\gamma^\1\ra\Delta^\M\,(\sigma^\A\,\gamma^\0)\,(\sigma^\A\,\gamma^\1)                                                                      \\
-  & t:\Tm\,\Gamma\,A                                                                                      && t^\M && : (\gamma^M:\Gamma^\M\,\gamma^\0\,\gamma^\1)\ra A^\M\,\gamma^M\,(t^\A\,\gamma^\0)\,(t^\A\,\gamma^\1)                                                                     \\
-  & \cdot:\Con                                                                                            && \cdot^\M\,\tt\,\tt && :\equiv \top                                                                                                                                              \\
-  & \Gamma\rhd A:\Con                                                                                     && (\Gamma\rhd A)^\M\,(\gamma^\0,\alpha^\0)\,(\gamma^\1,\alpha^\1) && :\equiv (\gamma^M:\Gamma^\M\,\gamma^\0\,\gamma^\1)\times A^\M\,\gamma^M\,\alpha^\0\,\alpha^\1                \\
-  & (A:\Ty\,\Delta)[\sigma:\Tms\,\Gamma\,\Delta]:\Ty\,\Gamma                                              && (A[\sigma])^\M\,\gamma^M\,\alpha^\0\,\alpha^\1 && :\equiv A^\M\,(\sigma^\M\,\gamma^M)\,\alpha^\0\,\alpha^\1                                                                     \\
-  & \id : \Tms\,\Gamma\,\Gamma                                                                            && \id^\M\,\gamma^M && :\equiv \gamma^m                                                                                                                                            \\
-  & (\sigma:\Tms\,\Theta\,\Delta)\circ(\delta:\Tms\,\Gamma\,\Theta):\Tms\,\Gamma\,\Delta                  && (\sigma\circ\delta)^\M\,\gamma^M && :\equiv \sigma^\M\,(\delta^\M\,\gamma^M)                                                                                                    \\
-  & \epsilon : \Tms\,\Gamma\,\cdot                                                                        && \epsilon^\M\,\gamma^M && :\equiv \tt                                                                                                                                            \\
-  & (\sigma:\Tms\,\Gamma\,\Delta) , (t:\Tm\,\Gamma\,(A[\sigma])):\Tms\,\Gamma\,(\Delta\rhd A)\hspace{1em} && (\sigma, t)^\M\,\gamma^M && :\equiv (\sigma^\M\,\gamma^M, t^\M\,\gamma^M)                                                                                                       \\
-  & \pi_1\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tms\,\Gamma\,\Delta                                     && (\pi_1\,\sigma)^\M\,\gamma^M && :\equiv \proj_1\,(\sigma^\M\,\gamma^M)                                                                                                          \\
-  & \pi_2\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tm\,\Gamma\,(A[\pi_1\,\sigma])                          && (\pi_2\,\sigma)^\M\,\gamma^M && :\equiv \proj_2\,(\sigma^\M\,\gamma^M)                                                                                                          \\
-  & (t:\Tm\,\Delta\,A)[\sigma:\Tms\,\Gamma\,\Delta]:\Tm\,\Gamma\,(A[\sigma])                              && (t[\sigma])^\M\,\gamma^M && :\equiv t^\M\,(\sigma^\M\,\gamma^M)                                                                                                                 \\
-  & [\id] : A[\id] = A                                                                                    && [\id]^\M && :\equiv \refl                                                                                                                                                       \\
-  & [\circ] : A[\sigma \circ \delta] = A[\sigma][\delta]                                                  && [\circ]^\M && :\equiv \refl                                                                                                                                                     \\
-  & \ass : (\sigma \circ \delta) \circ \nu = \sigma \circ (\delta \circ \nu)                              && \ass^\M && :\equiv \refl                                                                                                                                                        \\
-  & \idl : \id\circ\sigma = \sigma                                                                        && \idl^\M && :\equiv \refl                                                                                                                                                        \\
-  & \idr : \sigma\circ\id = \sigma                                                                        && \idr^\M && :\equiv \refl                                                                                                                                                        \\
-  & {\cdot\eta} : \{\sigma : \Tms\,\Gamma\,\cdot\} \ra \sigma = \epsilon                                  && {\cdot\eta}^\M && :\equiv \refl                                                                                                                                                 \\
-  & {\rhd\beta_1} : \pi_1\,(\sigma, t) = \sigma                                                           && {\rhd\beta_1}^\M && :\equiv \refl                                                                                                                                               \\
-  & {\rhd\beta_2} : \pi_2\,(\sigma, t) = t                                                                && {\rhd\beta_2}^\M && :\equiv \refl                                                                                                                                               \\
-  & {\rhd\eta} : (\pi_1\,\sigma, \pi_2\,\sigma) = \sigma                                                  && {\rhd\eta}^\M && :\equiv \refl                                                                                                                                                  \\
-  & {,\circ} : (\sigma, t)\circ\delta = (\sigma\circ\delta, t[\delta])                                    && {,\circ}^\M && :\equiv \refl                                                                                                                                                    \\
-  & \U : \Ty\,\Gamma                                                                                      && \U^\M\,\gamma^M\,T^\0\,T^\1 && :\equiv T^\0\ra T^\1                                                                                                                             \\
-  & \El\,(a: \Tm\,\Gamma\,\U): \Ty\,\Gamma                                                                && (\El\,a)^\M\,\gamma^M\,\alpha^\0\,\alpha^\1 && :\equiv a^\M\,\gamma^M\,\alpha^\0 = \alpha^\1                                                                                    \\
-  & {\U[]} : \U[\sigma] = \U                                                                              && {\U[]}^\M && :\equiv \refl                                                                                                                                                      \\
-  & {\El[]} : (\El\,a)[\sigma] = \El\,(a[\sigma])                                                         && {\El[]}^\M && :\equiv \refl                                                                                                                                                     \\
-  & \Pi\,(a:\Tm\,\Gamma\,\U)(B:\Ty\,(\Gamma\rhd\El\,a)):\Ty\,\Gamma                                       && (\Pi\,a\,B)^\M\,\gamma^M\,f^\0\,f^\1 && :\equiv (\alpha^\0:a^\A\,\gamma^\0)\ra B^\M\,(\gamma^M, \refl)\,(f^\0\,\alpha^\0)\,(f^\1\,(a^\M\,\gamma^M\,\alpha^\0)) \hspace{1em}      \\
-  & \APP\,(t:\Tm\,\Gamma\,(\Pi\,a\,B)):\Tm\,(\Gamma\rhd\El\,a)\,B\hspace{1em}                             && (\APP\,t)^\M\,(\gamma^M,\alpha^M) && :\equiv \J\,(t^\M\,\gamma^M\,\alpha^\0)\,\alpha^M                                                                                          \\
-  & {\Pi[]} : (\Pi\,a\,B)[\sigma] = \Pi\,(a[\sigma])\,(B[\sigma^\uparrow])                                && {\Pi[]}^\M && :\equiv \refl                                                                                                                                                     \\
-  & {\APP[]} : (\APP\,t)[\sigma\uparrow] = \APP\,(t[\sigma])                                              && {\APP[]}^\M && :\equiv \refl                                                                                                                                                    \\
-  & \Id\,(a:\Tm\,\Gamma\,\U)\,(t\,u:\Tm\,\Gamma\,(\El\,a)):\Ty\,\Gamma                                    && (\Id\,a\,t\,u)^\M\,\gamma^M\,e^\0\,e^\1 && :\equiv\top                                                                                                                          \\
-  & \reflect\,(e:\Tm\,\Gamma\,(\Id\,a\,t\,u)): t = u                                                      && (\reflect\,e)^\M && :\equiv \UIP                                                                                                                                                \\
-  & {\Id[]} : (\Id\,a\,t\,u)[\sigma] = \Id\,(a[\sigma])\,(t[\sigma])\,(u[\sigma])                         && {\Id[]}^\M && :\equiv \refl                                                                                                                                                     \\
-  & \Pim\,(T:\Set)\,(B:T\ra\Ty\,\Gamma):\Ty\,\Gamma                                                       && (\Pim\,T\,B)^\M\,\gamma^M\,f^\0\,f^\1 && :\equiv (\alpha:T)\ra (B\,\alpha)^\M\,\gamma^M\,(f^\0\,\alpha)\,(f^\1\,\alpha)                                                         \\
-  & (t:\Tm\,\Gamma\,(\Pim\,T\,B))\appm(\alpha:T):\Tm\,\Gamma\,(B\,\alpha)                                 && (t\appm\alpha)^\M\,\gamma^M && :\equiv t^\M\,\gamma^M\,\alpha                                                                                                                  \\
-  & {\Pim[]} : (\Pim\,T\,B)[\sigma] = \Pim\,T\,(\lambda \alpha.(B\,\alpha)[\sigma])                       && {\Pim[]}^\M && :\equiv \refl                                                                                                                                                   \\
-  & {\appm[]} : (t\appm\alpha)[\sigma] = (t[\sigma])\mathop{\appm}\alpha                                  && {\appm[]}^\M && :\equiv \refl
-\end{alignat*}
-
-\newpage
-
-\begin{alignat*}{10}
-  & \text{\textbf{Syntax}}                                                                                && \rlap{$\text{Assuming $\omega:\Omega^\A$, the \textbf{recursor} is given by $\rec_\Omega\,\omega:\equiv \Omega^\R\,\id$}$}                                                                                          \\
-  & \Gamma:\Con                                                                                           && \Gamma^\R && :(\nu:\Tms\,\Omega\,\Gamma)\ra \Gamma^\R\,(\nu^\A\,\con)\,(\nu^\A\,\omega)                              \\
-  & A:\Ty\,\Gamma                                                                                         && A^\R && :(\nu:\Tms\,\Omega\,\Gamma)(t:\Tm\,\Omega\,(A[\nu]))\ra A^\M\,(\Gamma^\R\,\nu)\,(t^\A\,\con)\,(t^\A\,\omega) \\
-  & \sigma:\Tms\,\Gamma\,\Delta                                                                           && \sigma^\R && :(\nu:\Tms\,\Omega\,\Gamma)\ra \Delta^\R\,(\sigma\circ\nu) = \sigma^\M\,(\Gamma^\R\,\nu)                \\
-  & t:\Tm\,\Gamma\,A                                                                                      && t^\R && :(\nu:\Tms\,\Omega\,\Gamma)\ra A^\R\,\nu\,(t[\nu]) = t^\M\,(\Gamma^\R\,\nu)                                  \\
-  & \cdot:\Con                                                                                            && \cdot^\R\,\nu && :\equiv \tt                                                                                         \\
-  & \Gamma\rhd A:\Con                                                                                     && (\Gamma\rhd A)^\R\,\nu && :\equiv \big(\Gamma^\R\,(\pi_1\,\nu), A^\R\,(\pi_1\,\nu)\,(\pi_2\,\nu)\big)                \\
-  & (A:\Ty\,\Delta)[\sigma:\Tms\,\Gamma\,\Delta]:\Ty\,\Gamma                                              && (A[\sigma])^\R\,\nu\,t && :\equiv \tr_{(A^\M\,\blank\,(t^\A\,\con)\,(t^\A\,\omega))}\,(\sigma^\R\,\nu)\,(A^\R\,(\sigma\circ\nu)\,t)                           \\
-  & \id : \Tms\,\Gamma\,\Gamma                                                                            && \id^\R\,\nu && :\Gamma^\R\,\nu = \Gamma^\E\,\nu                                                                                                        \\
-  & (\sigma:\Tms\,\Theta\,\Delta)\circ(\delta:\Tms\,\Gamma\,\Theta):\Tms\,\Gamma\,\Delta                  && (\sigma\circ\delta)^\R\,\nu && : \Delta^\R\,(\sigma\circ\delta\circ\nu) \overset{\sigma^\R\,(\delta\circ\nu)}{=} \sigma^\M\,(\Theta^\R\,(\delta\circ\nu)) \overset{\delta^\R\,\nu}{=} \sigma^\M\,(\delta^\M\,(\Gamma^\R\,\nu))                                      \\
-  & \epsilon : \Tms\,\Gamma\,\cdot                                                                        && \epsilon^\R\,\nu && : \tt = \tt                                                                                                                                    \\
-  & (\sigma:\Tms\,\Gamma\,\Delta) , (t:\Tm\,\Gamma\,(A[\sigma])):\Tms\,\Gamma\,(\Delta\rhd A)\hspace{1em} && (\sigma,t)^\R\,\nu && : (\Delta^\R\,(\sigma\circ\nu),A^\R\,(\sigma\circ\nu)\,(t[\nu])) \overset{\sigma^\R\,\nu, t^\R\,\nu}{=} (\sigma^\M\,(\Gamma^\R\,\nu), t^\M\,(\Gamma^\R\,\nu))                                      \\
-  & \pi_1\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tms\,\Gamma\,\Delta                                     && (\pi_1\,\sigma)^\R\,\nu && : \proj_1\,((\Delta\rhd A)^\R\,(\sigma\circ\nu)) \overset{\sigma^\R\,\nu}{=} \proj_1\,(\sigma^\M\,(\Gamma^\R\,\nu))                                      \\
-  & \pi_2\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tm\,\Gamma\,(A[\pi_1\,\sigma])                          && (\pi_2\,\sigma)^\R\,\nu && : \proj_2\,((\Delta\rhd A)^\R\,(\sigma\circ\nu)) \overset{\sigma^\R\,\nu}{=} \proj_2\,(\sigma^\M\,(\Gamma^\R\,\nu))                                      \\
-  & (t:\Tm\,\Delta\,A)[\sigma:\Tms\,\Gamma\,\Delta]:\Tm\,\Gamma\,(A[\sigma])                              && (t[\sigma])^\R\,\nu && : A^\R\,(\sigma\circ\nu)\,(t[\sigma][\nu]) \overset{t^\R\,(\sigma\circ\nu)}{=} t^\M\,(\Delta^\R\,(\sigma\circ\nu)) \overset{\sigma^\R\,\nu}{=} t^\M\,(\sigma^\M\,(\Gamma^\R\,\nu))                                      \\
-  & [\id] : A[\id] = A                                                                                    && [\id]^\R && : A^\R\,\nu\,t = A^\R\,\nu\,t                                      \\
-  & [\circ] : A[\sigma \circ \delta] = A[\sigma][\delta]                                                  && [\circ]^\R && : A^\R\,(\sigma\circ\delta\circ\nu)\,t = A^\R\,(\sigma\circ\delta\circ\nu)\,t \\
-  & \ass : (\sigma \circ \delta) \circ \nu = \sigma \circ (\delta \circ \nu)                              && \ass^\R && :\equiv \UIP                                                  \\
-  & \idl : \id\circ\sigma = \sigma                                                                        && \idl^\R && :\equiv \UIP                                                  \\
-  & \idr : \sigma\circ\id = \sigma                                                                        && \idr^\R && :\equiv \UIP                                                  \\
-  & {\cdot\eta} : \{\sigma : \Tms\,\Gamma\,\cdot\} \ra \sigma = \epsilon                                  && {\cdot\eta}^\R && :\equiv \UIP                                           \\
-  & {\rhd\beta_1} : \pi_1\,(\sigma, t) = \sigma                                                           && {\rhd\beta_1}^\R && :\equiv \UIP                                          \\
-  & {\rhd\beta_2} : \pi_2\,(\sigma, t) = t                                                                && {\rhd\beta_2}^\R && :\equiv \UIP                                         \\
-  & {\rhd\eta} : (\pi_1\,\sigma, \pi_2\,\sigma) = \sigma                                                  && {\rhd\eta}^\R && :\equiv \UIP                                             \\
-  & {,\circ} : (\sigma, t)\circ\delta = (\sigma\circ\delta, t[\delta])                                    && {,\circ}^\R && :\equiv \UIP                                              \\
-  & \U : \Ty\,\Gamma                                                                                      && \U^\R\,\nu\,a && :\equiv \lambda \alpha.\big(\coe\,({a^\C\,\id}^{-1})\,\alpha\big)^\A\,\omega                                     \\
-  & \El\,(a: \Tm\,\Gamma\,\U): \Ty\,\Gamma                                                                && (\El\,a)^\R\,\nu\,t && : a^\M\,(\Gamma^\R\,\nu)\,(t^\A\,\con)\overset{t^\C\,\id}{=}a^\M\,(\Gamma^\R\,\nu)\,t \overset{a^\R\,\nu}{=}t^\A\,\omega                                      \\
-  & {\U[]} : \U[\sigma] = \U                                                                              && {\U[]}^\R && : \alpha.\alpha^\A\,\omega = \alpha.\alpha^\A\,\omega                                      \\
-  & {\El[]} : (\El\,a)[\sigma] = \El\,(a[\sigma])                                                         && {\El[]}^\R && :\equiv \UIP                                      \\
-  & \Pi\,(a:\Tm\,\Gamma\,\U)(B:\Ty\,(\Gamma\rhd\El\,a)):\Ty\,\Gamma                                       && (\Pi\,a\,B)^\R\,\nu\,t && :\equiv \lambda\alpha.\LET\,u:\equiv \coe\,({a^\C\,\nu}^{-1})\,(\tr_{a^\A}\,({\nu^\C\,\id}^{-1}) \alpha) \,\IN \,\tr\,({u^\C\,\id}^{-1})\,\big(\tr\,(a^\R\,\nu)\,(B^\R\,(\nu,u)\,(t\app u))\big) \\
-  & \APP\,(t:\Tm\,\Gamma\,(\Pi\,a\,B)):\Tm\,(\Gamma\rhd\El\,a)\,B\hspace{1em}                             && (\APP\,t)^\R\,(\nu, u) && : B^\R\,(\nu,u)\,(t[\nu]\app u) \overset{t^\R\,\nu}{=} t^\M\,(\Gamma^\R\,\nu)                                      \\
-  & {\Pi[]} : (\Pi\,a\,B)[\sigma] = \Pi\,(a[\sigma])\,(B[\sigma^\uparrow])                                && {\Pi[]}^\R && : \lambda\alpha.B^\R\,(\sigma\circ\nu,\alpha)\,(t\app\alpha) = \lambda\alpha.B^\R\,(\sigma\circ\nu,\alpha)\,(t\app\alpha)  \\
-  & {\APP[]} : (\APP\,t)[\sigma\uparrow] = \APP\,(t[\sigma])                                              && {\APP[]}^\R && :\equiv \UIP                                      \\
-  & \Id\,(a:\Tm\,\Gamma\,\U)\,(t\,u:\Tm\,\Gamma\,(\El\,a)):\Ty\,\Gamma                                    && {\Id\,a\,t\,u}^\R\,\nu\,e && :\equiv \tt                                      \\
-  & \reflect\,(e:\Tm\,\Gamma\,(\Id\,a\,t\,u)): t = u                                                      && (\reflect\,e)^\R && :\equiv \UIP                                      \\
-  & {\Id[]} : (\Id\,a\,t\,u)[\sigma] = \Id\,(a[\sigma])\,(t[\sigma])\,(u[\sigma])                         && {\Id[]}^\R && : \tt = \tt                                      \\
-  & \Pim\,(T:\Set)\,(B:T\ra\Ty\,\Gamma):\Ty\,\Gamma                                                       && (\Pim\,T\,B)^\R\,\nu\,t && :\equiv \lambda\alpha.(B\,\alpha)^\R\,\nu\,(t\appm\alpha)                                     \\
-  & (t:\Tm\,\Gamma\,(\Pim\,T\,B))\appm(\alpha:T):\Tm\,\Gamma\,(B\,\alpha)                                 && (t\appm\alpha)^\R\,\nu && : (B\,\alpha)^\R\,\nu\,(t[\nu]\appm\alpha) \overset{t^\R\,\nu}{=} t^\M\,(\Gamma^\R\,\nu)\,\alpha                                      \\
-  & {\Pim[]} : (\Pim\,T\,B)[\sigma] = \Pim\,T\,(\lambda \alpha.(B\,\alpha)[\sigma])                       && {\Pim[]}^\R && : \lambda\alpha.(B\,\alpha)^\R\,(\sigma\circ\nu)\,(t\appm\alpha) = \lambda\alpha.(B\,\alpha)^\R\,(\sigma\circ\nu)\,(t\appm\alpha)                              \\
-  & {\appm[]} : (t\appm\alpha)[\sigma] = (t[\sigma])\mathop{\appm}\alpha                                  && {\appm[]}^\R && :\equiv \UIP
-\end{alignat*}
-
-\newpage
-
-\begin{alignat*}{10}
-  & \text{\textbf{Syntax}}                                                                                      && \rlap{$\text{\textbf{Displayed algebras}}$} &&                                                                                                                    && \rlap{$\text{\textbf{Sections}}$}                                                                                                                                              \\
-  & \Gamma:\Con                                                                                        && \Gamma^\D && : \Gamma^\A\ra\Set                                                                                                                && \Gamma^\S && : (\gamma:\Gamma^\A)\ra\Gamma^\D\,\gamma\ra\Set                                                                                                          \\
-  & A:\Ty\,\Gamma                                                                                      && A^\D && : \Gamma^\D\,\gamma\ra A^\A\,\gamma\ra\Set                                                                                             && A^\S && : \Gamma^\S\,\gamma\,\gamma^D\ra (\alpha:A^\A\,\gamma)\ra A^\D\,\gamma^D\,\alpha\ra\Set                                                                       \\
-  & \sigma:\Tms\,\Gamma\,\Delta                                                                        && \sigma^\D && : \Gamma^\D\,\gamma\ra\Delta^\D\,(\sigma^\A\,\gamma)                                                                              && \sigma^\S && : \Gamma^\S\,\gamma\,\gamma^D\ra\Delta^\S\,(\sigma^\A\,\gamma)\,(\sigma^\D\,\gamma^D)                                                                    \\
-  & t:\Tm\,\Gamma\,A                                                                                   && t^\D && : (\gamma^D:\Gamma^\D\,\gamma)\ra A^\D\,\gamma^D\,(t^\A\,\gamma)                                                                       && t^\S && : (\gamma^S:\Gamma^\S\,\gamma\,\gamma^D)\ra A^\S\,\gamma^S\,(t^\A\,\gamma)\,(t^\D\,\gamma^D)                                                                  \\
-  & \cdot:\Con                                                                                         && \cdot^\D\,\tt && :\equiv \top                                                                                                                  && \cdot^\S\,\tt\,\tt && :\equiv \top                                                                                                                                    \\
-  & \Gamma\rhd A:\Con                                                                                  && (\Gamma\rhd A)^\D\,(\gamma, \alpha) && :\equiv (\gamma^D:\Gamma^\D\,\gamma)\times A^\D\,\gamma^D\,\alpha                                       && (\Gamma\rhd A)^\S\,(\gamma, \alpha)\,(\gamma^D, \alpha^D) && :\equiv (\gamma^S:\Gamma^\S\,\gamma\,\gamma^D)\times A^\S\,\gamma^S\,\alpha\,\alpha^D                    \\
-  & (A:\Ty\,\Delta)[\sigma:\Tms\,\Gamma\,\Delta]:\Ty\,\Gamma                                           && (A[\sigma])^\D\,\gamma^D\,\alpha && :\equiv A^\D\,(\sigma^\D\,\gamma^D)\,\alpha                                                                && (A[\sigma])^\S\,\gamma^S\,\alpha\,\alpha^D && :\equiv A^\S\,(\sigma^\S\,\gamma^S)\,\alpha\,\alpha^D                                                                   \\
-  & \id : \Tms\,\Gamma\,\Gamma                                                                         && \id^\D\,\gamma^D && :\equiv \gamma^D                                                                                                           && \id^\S\,\gamma^S && :\equiv \gamma^S                                                                                                                                  \\
-  & (\sigma:\Tms\,\Theta\,\Delta)\circ(\delta:\Tms\,\Gamma\,\Theta):\Tms\,\Gamma\,\Delta               && (\sigma\circ\delta)^\D\,\gamma^D && :\equiv \sigma^\D\,(\delta^\D\,\gamma^D)                                                                   && (\sigma\circ\delta)^\S\,\gamma^S && :\equiv \sigma^\S\,(\delta^\S\,\gamma^S)                                                                                          \\
-  & \epsilon : \Tms\,\Gamma\,\cdot                                                                     && \epsilon^\D\,\gamma^D && :\equiv \tt                                                                                                           && \epsilon^\S\,\gamma^S && :\equiv \tt                                                                                                                                  \\
-  & (\sigma:\Tms\,\Gamma\,\Delta) , (t:\Tm\,\Gamma\,(A[\sigma])):\Tms\,\Gamma\,(\Delta\rhd A)\hspace{1em} && (\sigma, t)^\D\,\gamma^D && :\equiv (\sigma^\D\,\gamma^D, t^\D\,\gamma^D)                                                                      && (\sigma, t)^\S\,\gamma^S && :\equiv (\sigma^\S\,\gamma^S, t^\S\,\gamma^S)                                                                                             \\
-  & \pi_1\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tms\,\Gamma\,\Delta                                  && (\pi_1\,\sigma)^\D\,\gamma^D && :\equiv \proj_1\,(\sigma^\D\,\gamma^D)                                                                         && (\pi_1\,\sigma)^\S\,\gamma^S && :\equiv \proj_1\,(\sigma^\S\,\gamma^S)                                                                                                \\
-  & \pi_2\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tm\,\Gamma\,(A[\pi_1\,\sigma])                       && (\pi_2\,\sigma)^\D\,\gamma^D && :\equiv \proj_2\,(\sigma^\D\,\gamma^D)                                                                         && (\pi_2\,\sigma)^\S\,\gamma^S && :\equiv \proj_2\,(\sigma^\S\,\gamma^S)                                                                                                \\
-  & (t:\Tm\,\Delta\,A)[\sigma:\Tms\,\Gamma\,\Delta]:\Tm\,\Gamma\,(A[\sigma])                           && (t[\sigma])^\D\,\gamma^D && :\equiv t^\D\,(\sigma^\D\,\gamma^D)                                                                                && (t[\sigma])^\S\,\gamma^S && :\equiv t^\S\,(\sigma^\S\,\gamma^S)                                                                                                       \\
-  & [\id] : A[\id] = A                                                                                 && [\id]^\D && :\equiv \refl                                                                                                                      && [\id]^\S && :\equiv \refl                                                                                                                                             \\
-  & [\circ] : A[\sigma \circ \delta] = A[\sigma][\delta]                                               && [\circ]^\D && :\equiv \refl                                                                                                                    && [\circ]^\S && :\equiv \refl                                                                                                                                           \\
-  & \ass : (\sigma \circ \delta) \circ \nu = \sigma \circ (\delta \circ \nu)                           && \ass^\D && :\equiv \refl                                                                                                                       && \ass^\S && :\equiv \refl                                                                                                                                              \\
-  & \idl : \id\circ\sigma = \sigma                                                                     && \idl^\D && :\equiv \refl                                                                                                                       && \idl^\S && :\equiv \refl                                                                                                                                              \\
-  & \idr : \sigma\circ\id = \sigma                                                                     && \idr^\D && :\equiv \refl                                                                                                                       && \idr^\S && :\equiv \refl                                                                                                                                              \\
-  & {\cdot\eta} : \{\sigma : \Tms\,\Gamma\,\cdot\} \ra \sigma = \epsilon                               && {\cdot\eta}^\D && :\equiv \refl                                                                                                                && {\cdot\eta}^\S && :\equiv \refl                                                                                                                                       \\
-  & {\rhd\beta_1} : \pi_1\,(\sigma, t) = \sigma                                                        && {\rhd\beta_1}^\D && :\equiv \refl                                                                                                              && {\rhd\beta_1}^\S && :\equiv \refl                                                                                                                                     \\
-  & {\rhd\beta_2} : \pi_2\,(\sigma, t) = t                                                             && {\rhd\beta_2}^\D && :\equiv \refl                                                                                                              && {\rhd\beta_2}^\S && :\equiv \refl                                                                                                                                     \\
-  & {\rhd\eta} : (\pi_1\,\sigma, \pi_2\,\sigma) = \sigma                                               && {\rhd\eta}^\D && :\equiv \refl                                                                                                                 && {\rhd\eta}^\S && :\equiv \refl                                                                                                                                        \\
-  & {,\circ} : (\sigma, t)\circ\delta = (\sigma\circ\delta, t[\delta])                                 && {,\circ}^\D && :\equiv \refl                                                                                                                   && {,\circ}^\S && :\equiv \refl                                                                                                                                          \\
-  & \U : \Ty\,\Gamma                                                                                   && \U^\D\,\gamma^D\,T && :\equiv T\ra\Set                                                                                                         && \U^\S\,\gamma^S\,T\,T^D && :\equiv (\alpha:T)\ra T^D\,\alpha                                                                                                          \\
-  & \El\,(a: \Tm\,\Gamma\,\U): \Ty\,\Gamma                                                             && (\El\,a)^\D\,\gamma^D\,\alpha && :\equiv a^\D\,\gamma^D\,\alpha                                                                                && (\El\,a)^\S\,\gamma^S\,\alpha\,\alpha^D && :\equiv a^\S\,\gamma^S\,\alpha = \alpha^D                                                                                  \\
-  & {\U[]} : \U[\sigma] = \U                                                                           && {\U[]}^\A && :\equiv \refl                                                                                                                     && {\U[]}^\S && :\equiv \refl                                                                                                                                            \\
-  & {\El[]} : (\El\,a)[\sigma] = \El\,(a[\sigma])                                                      && {\El[]}^\A && :\equiv \refl                                                                                                                    && {\El[]}^\S && :\equiv \refl                                                                                                                                           \\
-  & \Pi\,(a:\Tm\,\Gamma\,\U)(B:\Ty\,(\Gamma\rhd\El\,a)):\Ty\,\Gamma                                    && (\Pi\,a\,B)^\D\,\gamma^D\,f && :\equiv (\alpha^D:a^\D\,\gamma^D\,\alpha)\ra                            && (\Pi\,a\,B)^\S\,\gamma^S\,f\,f^D && :\equiv (\alpha:a^\A\,\gamma)\ra    \\
-  &                                                                                                    && && \hspace{2em}B^\D\,(\gamma^D, \alpha^D)\,(f\,\alpha)                            &&  && \hspace{2em} B^\S\,(\gamma^S, \refl_{a^\S\,\gamma^S\,\alpha})\,(f\,\alpha)\,(f^D\,(a^\S\,\gamma^S\,\alpha))   \\
-  & \APP\,(t:\Tm\,\Gamma\,(\Pi\,a\,B)):\Tm\,(\Gamma\rhd\El\,a)\,B\hspace{1em}                          && (\APP\,t)^\D\,(\gamma^D,\alpha^D) && :\equiv t^\D\,\gamma^D\,\alpha^D                                                                          && (\APP\,t)^\S\,(\gamma^S,\alpha^S) && :\equiv \J_{x.z.B^\S\,(\gamma^S,z)\,(t^\A\,\gamma\,\alpha)\,(t^\D\,\gamma^D\,x)}\,(t^\S\,\gamma^S\,\alpha)\,\alpha^S             \\
-  & {\Pi[]} : (\Pi\,a\,B)[\sigma] = \Pi\,(a[\sigma])\,(B[\sigma^\uparrow])                              && {\Pi[]}^\D && :\equiv \refl                                                                                                                   && {\Pi[]}^\S && :\equiv \refl                                                                                                                                           \\
-  & {\APP[]} : (\APP\,t)[\sigma\uparrow] = \APP\,(t[\sigma])                                           && {\APP[]}^\D && :\equiv \refl                                                                                                                   && {\APP[]}^\S && :\equiv \refl                                                                                                                                          \\
-  & \Id\,(a:\Tm\,\Gamma\,\U)\,(t\,u:\Tm\,\Gamma\,(\El\,a)):\Ty\,\Gamma                                 && (\Id\,a\,t\,u)^\D\,\gamma^D\,e && :\equiv \tr_{(a^\D\,\gamma^D)}\,e\,(t^\D\,\gamma^D)=u^\D\,\gamma^D\hspace{1em}                                           && (\Id\,a\,t\,u)^\S\,\gamma^S\,e\,e^D && :\equiv \top                                                                                                                   \\
-  & \reflect\,(e:\Tm\,\Gamma\,(\Id\,a\,t\,u)): t = u                                                   && (\reflect\,e)^\D && : t^\D\,\gamma^D \overset{e^\D\,\gamma^D}{=} u^\D\,\gamma^D                                                                && (\reflect\,e)^\S && :\equiv \UIP                                                                                                                                      \\
-  & {\Id[]} : (\Id\,a\,t\,u)[\sigma] = \Id\,(a[\sigma])\,(t[\sigma])\,(u[\sigma])                      && {\Id[]}^\D && :\equiv \refl                                                                                                                    && {\Id[]}^\S && :\equiv \refl                                                                                                                                           \\
-  & \Pim\,(T:\Set)\,(B:T\ra\Ty\,\Gamma):\Ty\,\Gamma                                                    && (\Pim\,T\,B)^\D\,\gamma^D\,f && :\equiv (\alpha:T)\ra (B\,\alpha)^\D\,\gamma^D\,(f\,\alpha)                                                    && (\Pim\,T\,B)^\S\,\gamma^S\,f\,f^D && :\equiv (\alpha:T)\ra (B\,\alpha)^\S\,\gamma^S\,(f\,\alpha)\,(f^D\,\alpha)                                                       \\
-  & (t:\Tm\,\Gamma\,(\Pim\,T\,B))\appm(\alpha:T):\Tm\,\Gamma\,(B\,\alpha)                              && (t\appm\alpha)^\D\,\gamma^D && :\equiv t^\D\,\gamma^D\,\alpha                                                                                  && (t\appm\alpha)^\S\,\gamma^S && :\equiv t^\S\,\gamma^S\,\alpha                                                                                                         \\
-  & {\Pim[]} : (\Pim\,T\,B)[\sigma] = \Pim\,T\,(\lambda \alpha.(B\,\alpha)[\sigma])                    && {\Pim[]}^\D && :\equiv \refl                                                                                                                   && {\Pim[]}^\S && :\equiv \refl                                                                                                                                          \\
-  & {\appm[]} : (t\appm\alpha)[\sigma] = (t[\sigma])\mathop{\appm}\alpha                               && {\appm[]}^\D && :\equiv \refl                                                                                                                  && {\appm[]}^\S && :\equiv \refl
-\end{alignat*}
-
-\newpage
-
-\begin{alignat*}{10}
-  & \text{\textbf{Syntax}}                                                                                         && \rlap{$\text{Assuming $\omega^D : \Omega^\D\,\con$, the \textbf{eliminator} is given by $\elim_\Omega\,\omega^D:\equiv \Omega^{\E_{\omega^D}}\,\id$}$}  \\
-  & \Gamma:\Con                                                                                                    && \Gamma^\E && :(\nu:\Tms\,\Omega\,\Gamma)\ra \Gamma^\S\,(\nu^\A\,\con)\,(\nu^\D\,\omega^D)                              \\
-  & A:\Ty\,\Gamma                                                                                                  && A^\E && :(\nu:\Tms\,\Omega\,\Gamma)(t:\Tm\,\Omega\,(A[\nu]))\ra A^\S\,(\Gamma^\E\,\nu)\,(t^\A\,\con)\,(t^\D\,\omega^D) \\
-  & \sigma:\Tms\,\Gamma\,\Delta                                                                                    && \sigma^\E && :(\nu:\Tms\,\Omega\,\Gamma)\ra \Delta^\E\,(\sigma\circ\nu) = \sigma^\S\,(\Gamma^\E\,\nu)                \\
-  & t:\Tm\,\Gamma\,A                                                                                               && t^\E && :(\nu:\Tms\,\Omega\,\Gamma)\ra A^\E\,\nu\,(t[\nu]) = t^\S\,(\Gamma^\E\,\nu)                                  \\
-  & \cdot:\Con                                                                                                     && \cdot^\E\,\nu && :\equiv \tt                                                                                         \\
-  & \Gamma\rhd A:\Con                                                                                              && (\Gamma\rhd A)^\E\,\nu && :\equiv \big(\Gamma^\E\,(\pi_1\,\nu), A^\E\,(\pi_1\,\nu)\,(\pi_2\,\nu)\big)                \\
-  & (A:\Ty\,\Delta)[\sigma:\Tms\,\Gamma\,\Delta]:\Ty\,\Gamma                                                       && (A[\sigma])^\E\,\nu\,t && :\equiv \tr_{(A^\S\,\blank\,(t^\A\,\con)\,(t^\D\,\omega^D))}\,(\sigma^\E\,\nu)\,(A^\E\,(\sigma\circ\nu)\,t)                           \\
-  & \id : \Tms\,\Gamma\,\Gamma                                                                                     && \id^\E\,\nu && :\Gamma^\E\,\nu = \Gamma^\E\,\nu                                                                                                        \\
-  & (\sigma:\Tms\,\Theta\,\Delta)\circ(\delta:\Tms\,\Gamma\,\Theta):\Tms\,\Gamma\,\Delta                           && (\sigma\circ\delta)^\E\,\nu && : \Delta^\E\,(\sigma\circ\delta\circ\nu) \overset{\sigma^\E\,(\delta\circ\nu)}{=} \sigma^\S\,(\Theta^\E\,(\delta\circ\nu)) \overset{\delta^\E\,\nu}{=} \sigma^\S\,(\delta^\S\,(\Gamma^\E\,\nu))                                      \\
-  & \epsilon : \Tms\,\Gamma\,\cdot                                                                                 && \epsilon^\E\,\nu && : \tt = \tt                                                                                                                                    \\
-  & (\sigma:\Tms\,\Gamma\,\Delta) , (t:\Tm\,\Gamma\,(A[\sigma])):\Tms\,\Gamma\,(\Delta\rhd A)\hspace{1em}          && (\sigma,t)^\E\,\nu && : (\Delta^\E\,(\sigma\circ\nu),A^\E\,(\sigma\circ\nu)\,(t[\nu])) \overset{\sigma^\E\,\nu, t^\E\,\nu}{=} (\sigma^\S\,(\Gamma^\E\,\nu), t^\S\,(\Gamma^\E\,\nu))                                      \\
-  & \pi_1\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tms\,\Gamma\,\Delta                                              && (\pi_1\,\sigma)^\E\,\nu && : \proj_1\,((\Delta\rhd A)^\E\,(\sigma\circ\nu)) \overset{\sigma^\E\,\nu}{=} \proj_1\,(\sigma^\S\,(\Gamma^\E\,\nu))                                      \\
-  & \pi_2\,(\sigma:\Tms\,\Gamma\,(\Delta\rhd A)):\Tm\,\Gamma\,(A[\pi_1\,\sigma])                                   && (\pi_2\,\sigma)^\E\,\nu && : \proj_2\,((\Delta\rhd A)^\E\,(\sigma\circ\nu)) \overset{\sigma^\E\,\nu}{=} \proj_2\,(\sigma^\S\,(\Gamma^\E\,\nu))                                      \\
-  & (t:\Tm\,\Delta\,A)[\sigma:\Tms\,\Gamma\,\Delta]:\Tm\,\Gamma\,(A[\sigma])                                       && (t[\sigma])^\E\,\nu && : A^\E\,(\sigma\circ\nu)\,(t[\sigma][\nu]) \overset{t^\E\,(\sigma\circ\nu)}{=} t^\S\,(\Delta^\E\,(\sigma\circ\nu)) \overset{\sigma^\E\,\nu}{=} t^\S\,(\sigma^\S\,(\Gamma^\E\,\nu))                                      \\
-  & [\id] : A[\id] = A                                                                                             && [\id]^\E && : A^\E\,\nu\,t = A^\E\,\nu\,t                                      \\
-  & [\circ] : A[\sigma \circ \delta] = A[\sigma][\delta]                                                           && [\circ]^\E && : A^\E\,(\sigma\circ\delta\circ\nu)\,t = A^\E\,(\sigma\circ\delta\circ\nu)\,t \\
-  & \ass : (\sigma \circ \delta) \circ \nu = \sigma \circ (\delta \circ \nu)                                       && \ass^\E && :\equiv \UIP                                                  \\
-  & \idl : \id\circ\sigma = \sigma                                                                                 && \idl^\E && :\equiv \UIP                                                  \\
-  & \idr : \sigma\circ\id = \sigma                                                                                 && \idr^\E && :\equiv \UIP                                                  \\
-  & {\cdot\eta} : \{\sigma : \Tms\,\Gamma\,\cdot\} \ra \sigma = \epsilon                                           && {\cdot\eta}^\E && :\equiv \UIP                                           \\
-  & {\rhd\beta_1} : \pi_1\,(\sigma, t) = \sigma                                                                    && {\rhd\beta_1}^\E&& :\equiv \UIP                                          \\
-  & {\rhd\beta_2} : \pi_2\,(\sigma, t) = t                                                                         && {\rhd\beta_2}^\E && :\equiv \UIP                                         \\
-  & {\rhd\eta} : (\pi_1\,\sigma, \pi_2\,\sigma) = \sigma                                                           && {\rhd\eta}^\E&& :\equiv \UIP                                             \\
-  & {,\circ} : (\sigma, t)\circ\delta = (\sigma\circ\delta, t[\delta])                                             && {,\circ}^\E && :\equiv \UIP                                              \\
-  & \U : \Ty\,\Gamma                                                                                               && \U^\E\,\nu\,a && :\equiv \lambda \alpha.\coe\,\big({\alpha^\C\,\id}^{-1}\big)\,\Big(\big(\coe\,({a^\C\,\id}^{-1})\,\alpha\big)^\D\,\omega^D\Big)                                     \\
-  & \El\,(a: \Tm\,\Gamma\,\U): \Ty\,\Gamma                                                                         && (\El\,a)^\E\,\nu\,t && : a^\S\,(\Gamma^\E\,\nu)\,(t^\A\,\con)\overset{t^\C\,\id}{=}a^\S\,(\Gamma^\E\,\nu)\,t \overset{a^\E\,\nu}{=}t^\D\,\omega^D                                      \\
-  & {\U[]} : \U[\sigma] = \U                                                                                       && {\U[]}^\E && : \alpha.\alpha^\D\,\omega^D = \alpha.\alpha^\D\,\omega^D                                      \\
-  & {\El[]} : (\El\,a)[\sigma] = \El\,(a[\sigma])                                                                  && {\El[]}^\E && :\equiv \UIP                                      \\
-  & \Pi\,(a:\Tm\,\Gamma\,\U)(B:\Ty\,(\Gamma\rhd\El\,a)):\Ty\,\Gamma                                                && (\Pi\,a\,B)^\E\,\nu\,t && :\equiv \lambda\alpha.\LET\,u:\equiv \coe\,({a^\C\,\nu}^{-1})\,(\tr_{a^\A}\,({\nu^\C\,\id}^{-1}) \alpha) \,\IN\,\tr\,({u^\C\,\id}^{-1})\,\big(\tr\,(a^\E\,\nu)\,(B^\E\,(\nu,u)\,(t\app u))\big) \\
-  & \APP\,(t:\Tm\,\Gamma\,(\Pi\,a\,B)):\Tm\,(\Gamma\rhd\El\,a)\,B\hspace{1em}                                      && (\APP\,t)^\E\,(\nu, u) && : B^\E\,(\nu,u)\,(t[\nu]\app u) \overset{t^\E\,\nu}{=} t^\S\,(\Gamma^\E\,\nu)                                      \\
-  & {\Pi[]} : (\Pi\,a\,B)[\sigma] = \Pi\,(a[\sigma])\,(B[\sigma^\uparrow])                                          && {\Pi[]}^\E && : \lambda\alpha.B^\E\,(\sigma\circ\nu,\alpha)\,(t\app\alpha) = \lambda\alpha.B^\E\,(\sigma\circ\nu,\alpha)\,(t\app\alpha)  \\
-  & {\APP[]} : (\APP\,t)[\sigma\uparrow] = \APP\,(t[\sigma])                                                       && {\APP[]}^\E && :\equiv \UIP                                      \\
-  & \Id\,(a:\Tm\,\Gamma\,\U)\,(t\,u:\Tm\,\Gamma\,(\El\,a)):\Ty\,\Gamma                                             && {\Id\,a\,t\,u}^\E\,\nu\,e && :\equiv \tt                                      \\
-  & \reflect\,(e:\Tm\,\Gamma\,(\Id\,a\,t\,u)): t = u                                                               && (\reflect\,e)^\E && :\equiv \UIP                                      \\
-  & {\Id[]} : (\Id\,a\,t\,u)[\sigma] = \Id\,(a[\sigma])\,(t[\sigma])\,(u[\sigma])                                  && {\Id[]}^\E && : \tt = \tt                                      \\
-  & \Pim\,(T:\Set)\,(B:T\ra\Ty\,\Gamma):\Ty\,\Gamma                                                                && (\Pim\,T\,B)^\E\,\nu\,t && :\equiv \lambda\alpha.(B\,\alpha)^\E\,\nu\,(t\appm\alpha)                                     \\
-  & (t:\Tm\,\Gamma\,(\Pim\,T\,B))\appm(\alpha:T):\Tm\,\Gamma\,(B\,\alpha)                                          && (t\appm\alpha)^\E\,\nu && : (B\,\alpha)^\E\,\nu\,(t[\nu]\appm\alpha) \overset{t^\E\,\nu}{=} t^\S\,(\Gamma^\E\,\nu)\,\alpha                                      \\
-  & {\Pim[]} : (\Pim\,T\,B)[\sigma] = \Pim\,T\,(\lambda \alpha.(B\,\alpha)[\sigma])                                && {\Pim[]}^\E && : \lambda\alpha.(B\,\alpha)^\E\,(\sigma\circ\nu)\,(t\appm\alpha) = \lambda\alpha.(B\,\alpha)^\E\,(\sigma\circ\nu)\,(t\appm\alpha)                              \\
-  & {\appm[]} : (t\appm\alpha)[\sigma] = (t[\sigma])\mathop{\appm}\alpha                                           && {\appm[]}^\E && :\equiv \UIP
-\end{alignat*}
-
-}
-
-\end{landscape}
-
-\newpage
-
-\section{The main parts of the CwF$^\K_{\Eq}$ model}
-\label{sec:motives}
-
-The interpretation of $\Gamma:\Con$:
-{\footnotesize
-\begin{alignat*}{5}
-  & \Gamma^\A && :\Set \\
-  & \Gamma^\D && :\Gamma^\A\ra\Set \\
-  & \Gamma^\M && :\Gamma^\A\ra\Gamma^\A\ra\Set \\
-  & \Gamma^\S && :(\gamma:\Gamma^\A)\ra\Gamma^\D\,\gamma\ra\Set \\
-  & \cdot_\Gamma && :\Gamma^\A \\
-  & \rhd_\Gamma && :(\gamma:\Gamma^\A)\ra \Gamma^\D\,\gamma\ra \Gamma^\A \\
-  & \blank[\blank]_\Gamma && : \Gamma^\D\,\gamma'\ra\Gamma^\M\,\gamma\,\gamma'\ra\Gamma^\D\,\gamma \\
-  & \id_\Gamma && : (\gamma:\Gamma^\A)\ra\Gamma^\M\,\gamma\,\gamma \\
-  & \blank\circ_\Gamma\blank && : \Gamma^\M\,\gamma'\,\gamma'' \ra \Gamma^\M\,\gamma\,\gamma'\ra\Gamma^\M\,\gamma\,\gamma'' \\
-  & \epsilon_\Gamma && : \Gamma^\M\,\gamma\,\cdot_\Gamma \\
-  & \blank,_\Gamma\blank && : (\gamma^M:\Gamma^\M\,\gamma\,\gamma')\ra\Gamma^\S\,\gamma\,({\gamma^D}'[\gamma^M]_\Gamma)\ra\Gamma^\M\,\gamma\,(\gamma'\rhd{\gamma^D}') \\
-  & {\pi_1}_\Gamma && : \Gamma^\M\,\gamma\,(\gamma'\rhd_\Gamma{\gamma^D}')\ra\Gamma^\M\,\gamma\,\gamma' \\
-  & {\pi_2}_\Gamma && : (\gamma^M:\Gamma^\M\,\gamma\,(\gamma'\rhd_\Gamma{\gamma^D}'))\ra\Gamma^\S\,\gamma\,({\gamma^D}'[{\pi_1}_\Gamma\,\gamma^M]_\Gamma) \\
-  & \blank[\blank]_\Gamma && : \Gamma^\S\,\gamma'\,{\gamma^D}'\ra(\gamma^M:\Gamma^\M\,\gamma\,\gamma')\ra\Gamma^\S\,\gamma\,({\gamma^D}'[\gamma^M]_\Gamma) \\
-  & {[\id]}_\Gamma && : \gamma^D[\id_\Gamma]_\Gamma = \gamma^D \\
-  & {[\circ]}_\Gamma && : {\gamma^D}''[{\gamma^M}'\circ_\Gamma\gamma^M]_\Gamma = {\gamma^D}'[{\gamma^M}']_\Gamma[\gamma^M]_\Gamma \\
-  & {\ass}_\Gamma && : ({\gamma^M}''\circ_\Gamma{\gamma^M}')\circ_\Gamma\gamma^M = {\gamma^M}''\circ_\Gamma({\gamma^M}'\circ_\Gamma\gamma^M) \\
-  & {\idl}_\Gamma && : \id_\Gamma\,\gamma'\circ_\Gamma\gamma^M = \gamma^M \\
-  & {\idr}_\Gamma && : \gamma^M\circ_\Gamma\id_\Gamma\,\gamma = \gamma^M \\
-  & {\cdot\eta}_\Gamma && : (\gamma^M:\Gamma^\M\,\gamma\,\cdot_\Gamma) \ra \gamma^M=\epsilon_\Gamma\,\gamma \\
-  & {\rhd\beta_1}_\Gamma && : {\pi_1}_\Gamma\,(\gamma^M,_\Gamma\gamma^S) = \gamma^M \\
-  & {\rhd\beta_2}_\Gamma && : {\pi_2}_\Gamma\,(\gamma^M,_\Gamma\gamma^S) = \gamma^S \\
-  & {\rhd\eta}_\Gamma && : ({\pi_1}_\Gamma\,\gamma^M,_\Gamma{\pi_2}_\Gamma\,\gamma^M) = \gamma^M \\
-  & {,\circ}_\Gamma && : ({\gamma^M}',_\Gamma{\gamma^S}')\circ_\Gamma\gamma^M = ({\gamma^M}'\circ_\Gamma\gamma^M,_\Gamma({\gamma^S}'[\gamma^M]_\Gamma)) \\
-  & \K_\Gamma && : \Gamma^\A\ra\Gamma^\D\,\gamma' \\
-  & {\K[]}_\Gamma && : \K_\Gamma\,\gamma''[\gamma^M]_\Gamma = \K_\Gamma\,\gamma'' \\
-  & \mk_\Gamma && : \Gamma^\M\,\gamma\,\bar{\gamma}\ra\Gamma^\S\,\gamma\,(\K_\Gamma\,\bar{\gamma}) \\
-  & \unk_\Gamma && : \Gamma^\S\,\gamma\,(\K_\Gamma\,\bar{\gamma}) \ra \Gamma^\M\,\gamma\,\bar{\gamma} \\
-  & {\K\beta}_\Gamma && : \unk_\Gamma\,(\mk_\Gamma\,\gamma^M) = \gamma^M \\
-  & {\K\eta}_\Gamma && : \mk_\Gamma\,(\unk_\Gamma\,\gamma^S) = \gamma^S \\
-  & {\mk[]}_\Gamma && : \mk_\Gamma\,\bar{\gamma}^M[\gamma^M]_\Gamma = \mk_\Gamma\,(\bar{\gamma}^M\circ_\Gamma\gamma^M) \\
-  & \Eq_\Gamma && : \Gamma^\S\,\gamma\,\gamma^D\ra\Gamma^\S\,\gamma\,\gamma^D\ra\Gamma^\D\,\gamma \\
-  & {\Eq[]}_\Gamma && : (\Eq_\Gamma\,\gamma^{S0}\,\gamma^{S1})[\gamma^M]_\Gamma = \Eq_\Gamma\,(\gamma^{S0}[\gamma^M]_\Gamma)\,(\gamma^{S1}[\gamma^M]_\Gamma) \\
-  & \eqreflect_\Gamma && : \Gamma^\S\,\gamma\,(\Eq_\Gamma\,\gamma^D\,\gamma^{S0}\,\gamma^{S1}) \ra \gamma^{S0}=\gamma^{S1}
-\end{alignat*}
-}
-
-\newpage
-
-The interpretation of $A:\Ty\,\Gamma$:
-{\footnotesize
-\begin{alignat*}{5}
-  & A^\A && :\Gamma^\A\ra\Set \\
-  & A^\D && :\Gamma^\D\,\gamma\ra A^\D\,\gamma\ra\Set \\
-  & A^\M && :\Gamma^\M\,\gamma\,\gamma'\ra A^\A\,\gamma\ra A^\A\,\gamma'\ra\Set \\
-  & A^\S && :\Gamma^\S\,\gamma\,\gamma^D\ra (\alpha:A^\A\,\gamma)\ra A^\D\,\gamma^D\,\alpha\ra\Set \\
-  & \cdot_A && : A^\A\,\cdot_\Gamma \\
-  & \rhd_A && : (\alpha:A^\A\,\gamma)\ra A^\D\,\gamma^D\,\alpha \ra A^\A\,(\gamma\rhd_\Gamma\gamma^D) \\
-  & \blank[\blank]_A && : A^\D\,{\gamma^D}'\,\alpha'\ra A^\M\,\gamma^M\,\alpha\,\alpha'\ra A^\D\,({\gamma^D}'[\gamma^M]_\Gamma)\,\alpha \\
-  & \id_A && : (\alpha:A^\A\,\gamma)\ra A^\M\,(\id_\Gamma\,\gamma)\,\alpha\,\alpha \\
-  & \blank\circ_A\blank && :A^\M\,{\gamma^M}'\,\alpha'\,\alpha''\ra A^\M\,\gamma^M\,\alpha\,\alpha'\ra A^\M\,({\gamma^M}'\circ_\Gamma\gamma^M)\,\alpha\,\alpha'' \\
-  & \epsilon_A && : A^\M\,\epsilon_\Gamma\,\alpha\,\cdot_A \\
-  & \blank,_A\blank && : (\alpha^M:A^\M\,\gamma^M\,\alpha\,\alpha')\ra A^\S\,\gamma^S\,\alpha\,({\alpha^D}'[\alpha^M]_A)\ra A^\M\,(\gamma^M,_\Gamma\gamma^S)\,\alpha\,(\alpha'\rhd_A{\alpha^D}') \\
-  & {\pi_1}_A && : A^\M\,\gamma^M\,\alpha\,(\alpha'\rhd_A{\alpha^D}')\ra A^\M\,({\pi_1}_\Gamma\,\gamma^M)\,\alpha\,\alpha' \\
-  & {\pi_2}_A && : (\alpha^M:A^\M\,\gamma^M\,\alpha\,(\alpha'\rhd_A{\alpha^D}'))\ra A^\S\,({\pi_2}_\Gamma\,\gamma^M)\,\alpha\,({\alpha^D}'[{\pi_1}_A\,\alpha^M]_A) \\
-  & \blank[\blank]_A && : A^\S\,{\gamma^S}'\,\alpha'\,{\alpha^D}'\ra(\alpha^M:\alpha^\M\,\gamma^M\,\alpha\,\alpha')\ra A^\S\,({\gamma^S}'[\gamma^M]_\Gamma)\,\alpha\,({\alpha^D}'[\alpha^M]_A) \\
-  & {[\id]}_A && : \alpha^D[\id_A]_A = \alpha^D \\
-  & {[\circ]}_A && : {\alpha^D}''[{\alpha^M}'\circ_A\alpha^M]_A = {\alpha^D}'[{\alpha^M}']_A[\alpha^M]_A \\
-  & {\ass}_A && : ({\alpha^M}''\circ_A{\circ^M}')\circ_A\alpha^M = {\alpha^M}''\circ_A({\alpha^M}'\circ_A\alpha^M) \\
-  & {\idl}_A && : \id_A\,\alpha'\circ_A\alpha^M = \alpha^M  \\
-  & {\idr}_A && : \alpha^M\circ_A \id_A\,\alpha = \alpha^M  \\
-  & {\cdot\eta}_A && : (\alpha^M:A^\M\,\gamma^M\,\alpha\,\cdot_A) \ra \alpha^M=\epsilon_A\,\alpha \\
-  & {\rhd\beta_1}_A && : {\pi_1}_A\,(\alpha^M,_A\alpha^S) = \alpha^M \\
-  & {\rhd\beta_2}_A && : {\pi_2}_A\,(\alpha^M,_A\alpha^S) = \alpha^S \\
-  & {\rhd\eta}_A && : ({\pi_1}_A\,\alpha^M,_A{\pi_2}_A\,\alpha^M) = \alpha^M \\
-  & {,\circ}_A && : ({\alpha^M}',_A{\alpha^S}')\circ_A\alpha^M = ({\alpha^M}'\circ_A\alpha^M,_A({\alpha^S}'[\alpha^M]_A)) \\
-  & \K_A && : A^\A\,\gamma\ra A^\D\,(\K_\Gamma\,\gamma)\,\alpha' \\
-  & {\K[]}_A && : \K_A\,\alpha''[\alpha^M]_A = \K_A\,\alpha'' \\
-  & \mk_A && : A^\M\,\gamma^M\,\alpha\,\bar{\alpha}\ra A^\S\,(\mk_\Gamma\,\gamma^M)\,\alpha\,(\K_A\,\bar{\alpha}) \\
-  & \unk_A && : A^\S\,\gamma^S\,\alpha\,(\K_A\,\bar{\alpha}) \ra A^\M\,(\unk_\Gamma\,\gamma^S)\,\alpha\,\bar{\alpha} \\
-  & {\K\beta}_A && : \unk_A\,(\mk_A\,\alpha^M) = \alpha^M \\
-  & {\K\eta}_A && : \mk_A\,(\unk_A\,\alpha^S) = \alpha^S \\
-  & {\mk[]}_A && : \mk_A\,\bar{\alpha}^M[\alpha^M]_A = \mk_A\,(\bar{\alpha}^M\circ_A\alpha^M) \\
-  & Eq_A && : A^\S\,\gamma^{S0}\,\alpha\,\alpha^D\ra A^\S\,\gamma^{S1}\,\,\alpha\alpha^D\ra A^\D\,(\Eq_\Gamma\,\gamma^D\,\gamma^{S0}\,\gamma^{S1})\,\alpha \\
-  & {\Eq[]}_A && : (\Eq_A\,\alpha^{S0}\,\alpha^{S1})[\alpha^M]_A = \Eq_A\,(\alpha^{S0}[\alpha^M]_A)\,(\alpha^{S1}[\alpha^M]_A) \\
-  & \eqreflect_A && : A^\S\,\gamma^S\,\alpha\,(\Eq_A\,\alpha^D\,\alpha^{S0}\,\alpha^{S1}) \ra \alpha^{S0}=\alpha^{S1}
-\end{alignat*}
-}
-
-\newpage
-
-The interpretation of $\sigma:\Tms\,\Gamma\,\Delta$:
-{\footnotesize
-\begin{alignat*}{5}
-  & \sigma^\A && :\Gamma^\A\ra\Delta^\A \\
-  & \sigma^\D && : \Gamma^\D\,\gamma\ra\Delta^\D\,(\sigma^\A\,\gamma) \\
-  & \sigma^\M && : \Gamma^\M\,\gamma\,\gamma'\ra\Delta^\M\,(\sigma^\A\,\gamma)\,(\sigma^\A\,\gamma') \\
-  & \sigma^\S && : \Gamma^\S\,\gamma\,\gamma^D\ra\Delta^\S\,(\sigma^\A\,\gamma)\,(\sigma^\D\,\gamma^D) \\
-  & \cdot_\sigma && : \sigma^\A\,\cdot_\Gamma = \cdot_\Delta \\
-  & \rhd_\sigma && : \forall\gamma\,\gamma^D.\sigma^\A\,\gamma\rhd_\Delta\sigma^\D\,\gamma^D = \sigma^\A\,(\gamma\rhd_\Gamma\gamma^D) \\
-  & \blank[\blank]_\sigma && : \forall{\gamma^D}'\,\gamma^M.\sigma^\D\,{\gamma^\D}'[\sigma^\M\,\gamma^M]_\Delta = \sigma^\D\,({\gamma^D}'[\gamma^M]_\Gamma) \\
-  & \id_\sigma && :\forall\gamma.\id_\Delta\,(\sigma^\A\,\gamma) = \sigma^\M\,(\id_\Gamma\,\gamma) \\
-  & \blank\circ_\sigma\blank && : \forall{\gamma^M}'\,\gamma^M.\sigma^\M\,{\gamma^M}'\circ_\Delta\sigma^\M\,\gamma^M = \sigma^\M\,({\gamma^M}'\circ_\Gamma\gamma^M) \\
-  & \epsilon_\sigma && : \epsilon_\Delta = \sigma^\M\,\epsilon_\Gamma \\
-  & \blank,_\sigma\blank && : \forall\gamma^M\,\gamma^S.\sigma^\M\,\gamma^M,_\Delta\sigma^\S\,\gamma^S = \sigma^\M\,(\gamma^M,_\Gamma\gamma^S) \\
-  & {\pi_1}_\sigma && : \forall\gamma^M.{\pi_1}_\Delta\,(\sigma^\M\,\gamma^M) = \sigma^\M\,({\pi_1}_\Gamma\,\gamma^M) \\
-  & {\pi_2}_\sigma && : \forall\gamma^M.{\pi_2}_\Delta\,(\sigma^\M\,\gamma^M) = \sigma^\S\,({\pi_2}_\Gamma\,\gamma^M) \\
-  & \blank[\blank]_\sigma && : \forall{\gamma^S}'\,\gamma^M.\sigma^\S\,{\gamma^S}'[\sigma^\M\,\gamma^M]_\Delta = \sigma^\S\,({\gamma^S}'[\gamma^M]_\Gamma) \\
-  & \K_\sigma && : (\gamma:\Gamma^\A)\ra\K_\Delta\,(\sigma^\A\,\gamma) = \sigma^\D\,(\K_\Gamma\,\gamma) \\
-  & \mk_\sigma && : \forall\gamma^M.\mk_\Delta\,(\sigma^\M\,\gamma^M) = \sigma^\S\,(\mk_\Gamma\,\gamma^M) \\
-  & \mk_\sigma && : \forall\gamma^S.\unk_\Delta\,(\sigma^\S\,\gamma^S) = \sigma^\M\,(\unk_\Gamma\,\gamma^S) \\
-  & \Eq_\sigma && : \forall\gamma^{S0}\,\gamma^{S1}.\Eq_\Delta\,(\sigma^\S\,\gamma^{S0})\,(\sigma^\S\,\gamma^{S1}) = \sigma^\D\,(\Eq_\Gamma\,\gamma^{S0}\,\gamma^{S1})
-\end{alignat*}
-}
-
-The interpretation of $t:\Tm\,\Gamma\,A$:
-{\footnotesize
-\begin{alignat*}{5}
-  & t^\A && :(\gamma:\Gamma^\A)\ra A^\A\,\gamma \\
-  & t^\D && : (\gamma^D:\Gamma^\D\,\gamma)\ra A^\D\,\gamma^D\,(t^\A\,\gamma) \\
-  & t^\M && : (\gamma^M:\Gamma^\M\,\gamma\,\gamma')\ra A^\M\,\gamma^M\,(t^\A\,\gamma)\,(t^\A\,\gamma') \\
-  & t^\S && : (\gamma^S:\Gamma^\S\,\gamma\,\gamma^D)\ra A^\S\,\gamma^S\,(t^\A\,\gamma)\,(t^\D\,\gamma^D) \\
-  & \cdot_t && : t^\A\,\cdot_\Gamma = \cdot_A \\
-  & \rhd_t && : \forall\gamma\,\gamma^D.t^\A\,\gamma\rhd_A t^\D\,\gamma^D = t^\A\,(\gamma\rhd_\Gamma\gamma^D) \\
-  & \blank[\blank]_t && : \forall{\gamma^D}'\,\gamma^M.t^\D\,{\gamma^\D}'[t^\M\,\gamma^M]_A = t^\D\,({\gamma^D}'[\gamma^M]_\Gamma) \\
-  & \id_t && : \forall\gamma.\id_A\,(t^\A\,\gamma) = t^\M\,(\id_\Gamma\,\gamma) \\
-  & \blank\circ_t\blank && : \forall{\gamma^M}'\,\gamma^M.t^\M\,{\gamma^M}'\circ_A t^\M\,\gamma^M = t^\M\,({\gamma^M}'\circ_\Gamma\gamma^M) \\
-  & \epsilon_t && : \epsilon_A = t^\M\,\epsilon_\Gamma \\
-  & \blank,_t\blank && : \forall\gamma^M\,\gamma^S.t^\M\,\gamma^M,_A t^\S\,\gamma^S = t^\M\,(\gamma^M,_\Gamma\gamma^S) \\
-  & {\pi_1}_t && : \forall\gamma^M.{\pi_1}_A\,(t^\M\,\gamma^M) = t^\M\,({\pi_1}_\Gamma\,\gamma^M) \\
-  & {\pi_2}_t && : \forall\gamma^M.{\pi_2}_A\,(t^\M\,\gamma^M) = t^\S\,({\pi_2}_\Gamma\,\gamma^M) \\
-  & \blank[\blank]_t && : \forall{\gamma^S}'\,\gamma^M.t^\S\,{\gamma^S}'[t^\M\,\gamma^M]_A = t^\S\,({\gamma^S}'[\gamma^M]_\Gamma) \\
-  & \K_t && : (\gamma:\Gamma^\A)\ra\K_A\,(t^\A\,\gamma) = t^\D\,(\K_\Gamma\,\gamma) \\
-  & \mk_t && : \forall\gamma^M.\mk_A\,(t^\M\,\gamma^M) = t^\S\,(\mk_\Gamma\,\gamma^M) \\
-  & \mk_t && : \forall\gamma^S.\unk_A\,(t^\S\,\gamma^S) = t^\M\,(\unk_\Gamma\,\gamma^S) \\
-  & \Eq_t && : \forall\gamma^{S0}\,\gamma^{S1}.\Eq_A\,(t^\S\,\gamma^{S0})\,(t^\S\,\gamma^{S1}) = t^\D\,(\Eq_\Gamma\,\gamma^{S0}\,\gamma^{S1})
-\end{alignat*}
-}
-
-The interpretation of $\U:\Ty\,\Gamma$:
-{\footnotesize
-\begin{alignat*}{5}
-  & \U^\A\,\gamma && :\equiv \Set \\
-  & \U^\D\,\gamma^D\,T  && :\equiv T\ra\Set \\
-  & \U^\M\,\gamma^M\,T\,T'  && :\equiv T\ra T' \\
-  & \U^\S\,\gamma^S\,T\,T^D && :\equiv (\alpha:T)\ra T^D\,\alpha \\
-  & \cdot_\U  && :\equiv \top \\
-  & T\rhd_\U T^D  && :\equiv (\alpha:T)\times T^D\,\alpha \\
-  & T^D[T^M]_\U\,\alpha && :\equiv T^D\,(T^M\,\alpha) \\
-  & \id_\U\,T\,\alpha  && :\equiv \alpha \\
-  & ({T^M}'\circ_\U T^M)\,\alpha  && :\equiv {T^M}'\,(T^M\,\alpha) \\
-  & \epsilon_\U\,\_  && :\equiv \tt \\
-  & (T^M,_\U T^S)\,\alpha  && :\equiv (T^M\,\alpha,T^S\,\alpha) \\
-  & {\pi_1}_\U\,T^M\,\alpha  && :\equiv \proj_1\,(T^M\,\alpha) \\
-  & {\pi_2}_\U\,T^M\,\alpha  && :\equiv \proj_2\,(T^M\,\alpha) \\
-  & (T^S[T^M]_\U)\,\alpha  && :\equiv T^S\,(T^M\,\alpha) \\
-  & {[\id]}_\U  && :\equiv \refl \\
-  & {[\circ]}_\U  && :\equiv \refl \\
-  & {\ass}_\U  && :\equiv \refl \\
-  & {\idl}_\U  && :\equiv \refl \\
-  & {\idr}_\U  && :\equiv \refl \\
-  & {\cdot\eta}_\U  && :\equiv \refl \\
-  & {\rhd\beta_1}_\U  && :\equiv \refl \\
-  & {\rhd\beta_2}_\U  && :\equiv \refl \\
-  & {\rhd\eta}_\U  && :\equiv \refl \\
-  & {,\circ}_\U  && :\equiv \refl \\
-  & \K_\U\,T\,\_  && :\equiv T \\
-  & {\K[]}_\U  && :\equiv \refl \\
-  & \mk_\U\,T^M && :\equiv T^M \\
-  & \unk_\U\,T^S  && :\equiv T^S \\
-  & {\K\beta}_\U  && :\equiv \refl \\
-  & {\K\eta}_\U  && :\equiv \refl \\
-  & {\mk[]}_\U  && :\equiv \refl \\
-  & \Eq_\U\,T^{S0}\,T^{S1}\,\alpha  && :\equiv T^{S0}\,\alpha = T^{S1}\,\alpha \\
-  & {\Eq[]}_\U  && :\equiv \UIP \\
-  & \eqreflect_\U && :\equiv \funext
-\end{alignat*}
-}
-
-\newpage
-
-The interpretation of $\El\,a:\Ty\,\Gamma$:
-{\footnotesize
-\begin{alignat*}{5}
-  & {(\El\,a)}^\A\,\gamma && :\equiv a^\A\,\gamma \\
-  & {(\El\,a)}^\D\,\gamma^D\,\alpha  && :\equiv a^\D\,\gamma^D\,\alpha \\
-  & {(\El\,a)}^\M\,\gamma^M\,\alpha\,\alpha'  && :\equiv a^\M\,\gamma^M\alpha= \alpha' \\
-  & {(\El\,a)}^\S\,\gamma^S\,\alpha\,\alpha^D && :\equiv a^\S\,\gamma^\S\,\alpha=\alpha^D \\
-  & \cdot_{\El\,a}  && :\equiv \tt \\
-  & \alpha\rhd_{\El\,a} \alpha^D  && :\equiv  \coe\,(\gamma\rhd_a\gamma^D)\,(\alpha, \alpha^D) \\
-  & \alpha^D[\alpha^M]_{\El\,a} && :\equiv \tr\,({\alpha^M}^{-1})\,\alpha^D \\
-  & \id_{\El\,a}\,\alpha  && : (\lambda\alpha.\alpha) \overset{\id_a\,\gamma}{=} a^\M\,(\id_\Gamma\,\gamma) \\
-  & ({\alpha^M}'\circ_{\El\,a} \alpha^M)  && : a^\M\,({\gamma^M}'\circ_\Gamma\gamma^M)\,\alpha \overset{{\gamma^M}'\circ_a\gamma^M}{=} a^\M\,{\gamma^M}'\,(a^\M\,\gamma^\M\,\alpha) \overset{\alpha^M} = a^\M\,{\gamma^M}'\,\alpha' \overset{{\alpha^M}'}{=} \alpha'' \\
-  & \epsilon_{\El\,a}  && :\equiv \refl \\
-  & (\alpha^M,_{\El\,a} \alpha^S)  && : a^\M\,(\gamma^M,_\Gamma \gamma^S)\,\alpha \overset{\gamma^M,_a\,\gamma^S}{=} (a^\M\,\gamma^M\,\alpha,a^\S\,\gamma^S\,\alpha) \overset{\alpha^M, \alpha^S}{=} (\alpha',{\alpha^D}') \\
-  & {\pi_1}_{\El\,a}\,\alpha^M  && :\equiv a^\M\,({\pi_1}_\Gamma\,\gamma^M)\,\alpha \overset{{\pi_1}_a\,\gamma^M}{=} \proj_1\,(a^\M\,\gamma^M\,\alpha) \overset{\alpha^M}{=} \alpha' \\
-  & {\pi_2}_{\El\,a}\,\alpha^M  && :\equiv a^\S\,({\pi_2}_\Gamma\,\gamma^M)\,\alpha \overset{{\pi_2}_a\,\gamma^M}{=} \proj_2\,(a^\M\,\gamma^M\,\alpha) \overset{\alpha^M}{=} {\alpha^D}' \\
-  & (\alpha^S[\alpha^M]_{\El\,a}) && :\equiv a^\S\,({\gamma^S}'[\gamma^M]_\Gamma)\,\alpha \overset{{\gamma^S}'[\gamma^M]_a}{=} a^\S\,{\gamma^S}'\,(a^\M\,\gamma^M\,\alpha) \overset{\alpha^M}{=} a^\S\,{\gamma^S}'\,\alpha' \overset{\alpha^S} {\alpha^D}' \\
-  & {[\id]}_{\El\,a}  && :\equiv \refl \\
-  & {[\circ]}_{\El\,a}  && :\equiv \refl \\
-  & {\ass}_{\El\,a}  && :\equiv \UIP \\
-  & {\idl}_{\El\,a}  && :\equiv \UIP \\
-  & {\idr}_{\El\,a}  && :\equiv \UIP \\
-  & {\cdot\eta}_{\El\,a}  && :\equiv \UIP \\
-  & {\rhd\beta_1}_{\El\,a}  && :\equiv \UIP \\
-  & {\rhd\beta_2}_{\El\,a}  && :\equiv \UIP \\
-  & {\rhd\eta}_{\El\,a}  && :\equiv \UIP \\
-  & {,\circ}_{\El\,a}  && :\equiv \UIP \\
-  & \K_{\El\,a}\,\alpha\,\_  && :\equiv \alpha \\
-  & {\K[]}_{\El\,a}  && :\equiv \refl \\
-  & \mk_{\El\,a}\,\alpha^M && : a^\M\,(\mk_\Gamma\,\gamma^M)\,\alpha \overset{\mk_a\,\gamma^M}{=} a^\M\,\gamma^M\,\alpha \overset{\alpha^M}{=} \bar{\alpha} \\
-  & \unk_{\El\,a}\,\alpha^S  && : a^\S\,(\unk_\Gamma\,\gamma^S)\,\alpha \overset{\unk_a\,\gamma^S}{=} a^\S\,\gamma^S\,\alpha \overset{\alpha^S}{=} \bar{\alpha} \\
-  & {\K\beta}_{\El\,a}  && :\equiv \UIP \\
-  & {\K\eta}_{\El\,a}  && :\equiv \UIP \\
-  & {\mk[]}_{\El\,a}  && :\equiv \UIP \\
-  & \Eq_{\El\,a}\,\alpha^{S0}\,\alpha^{S1}  && : a^\S,\gamma^{S0}\,\alpha \overset{\alpha^{S0}}{=} \alpha^D \overset{\alpha^{S1}}{=} a^\S\,\gamma^{S1} \alpha \\
-  & {\Eq[]}_{\El\,a}  && :\equiv \UIP \\
-  & \eqreflect_{\El\,a}\,\alpha^S && :\equiv \UIP
-\end{alignat*}
-}
-
-\newpage
-
-The interpretation of $\Pi\,a\,B:\Ty\,\Gamma$:
-{\footnotesize
-\begin{alignat*}{5}
-  & {(\Pi\,a\,B)}^\A\,\gamma && :\equiv (\alpha:a^\A\,\gamma)\ra B^\A\,(\gamma,\alpha) \\
-  & {(\Pi\,a\,B)}^\D\,\gamma^D\,f  && :\equiv (\alpha^D:a^\D\,\gamma^D)\ra B^\D\,(\gamma^D,\alpha^D)\,(f\,\alpha) \\
-  & {(\Pi\,a\,B)}^\M\,\gamma^M\,f\,f'  && :\equiv (\alpha:a^\A\,\gamma) \ra B^\M\,(\gamma^M,\refl)\,(f\,\alpha)\,(f'\,(a^\M\,\gamma^M\,\alpha)) \\
-  & {(\Pi\,a\,B)}^\S\,\gamma^S\,f\,f^D && :\equiv (\alpha:a^\A\,\gamma) \ra B^\S\,(\gamma^S,\refl)\,(f\,\alpha)\,(f^D\,(a^\S\,\gamma^S\,\alpha)) \\
-  & \cdot_{\Pi\,a\,B}\,\_  && :\equiv \cdot_B \\
-  & (f\rhd_{\Pi\,a\,B} f^D)\,(\alpha,\alpha^D) && :\equiv (f\,\alpha\rhd_B f^D\,\alpha^D) \\
-  & (f^D[f^M]_{\Pi\,a\,B})\,\alpha^D && :\equiv f^D\,\alpha^D[f^M\,\alpha]_B \\
-  & (\id_{\Pi\,a\,B}\,f)\,\alpha  && :\equiv \id_B\,(f\,\alpha) \\
-  & ({f^M}'\circ_{\Pi\,a\,B} f^M)\,\alpha && :\equiv ({f^M}'\,(a^\M\,\gamma^M\,\alpha)\circ_B f^M\,\alpha) \\
-  & \epsilon_{\Pi\,a\,B}\,\_  && :\equiv \epsilon_B \\
-  & (f^M,_{\Pi\,a\,B} f^S)\,\alpha  && :\equiv (f^M\,\alpha,_B f^S\,\alpha) \\
-  & {\pi_1}_{\Pi\,a\,B}\,f^M\,\alpha  && :\equiv {\pi_1}_B\,(f^M\,\alpha) \\
-  & {\pi_2}_{\Pi\,a\,B}\,f^M\,\alpha  && :\equiv {\pi_2}_B\,(f^M\,\alpha) \\
-  & (f^S[f^M]_{\Pi\,a\,B})\,\alpha && :\equiv f^\S\,(a^\M\,\gamma^M\,\alpha)[f^M\,\alpha]_B \\
-  & {[\id]}_{\Pi\,a\,B}  && :\equiv {[\id]}_B \\
-  & {[\circ]}_{\Pi\,a\,B}  && :\equiv {[\circ]}_B \\
-  & {\ass}_{\Pi\,a\,B}  && :\equiv \ass_B \\
-  & {\idl}_{\Pi\,a\,B}  && :\equiv \idl_B \\
-  & {\idr}_{\Pi\,a\,B}  && :\equiv \idr_B \\
-  & {\cdot\eta}_{\Pi\,a\,B}  && :\equiv {\cdot\eta}_B \\
-  & {\rhd\beta_1}_{\Pi\,a\,B}  && :\equiv {\rhd\beta_1}_B \\
-  & {\rhd\beta_2}_{\Pi\,a\,B}  && :\equiv {\rhd\beta_2}_B \\
-  & {\rhd\eta}_{\Pi\,a\,B}  && :\equiv {\rhd\eta}_B \\
-  & {,\circ}_{\Pi\,a\,B}  && :\equiv {,\circ}_B \\
-  & \K_{\Pi\,a\,B}\,f\,\alpha  && :\equiv \K_B\,(f\,\alpha) \\
-  & {\K[]}_{\Pi\,a\,B}  && :\equiv {\K[]}_B \\
-  & \mk_{\Pi\,a\,B}\,f^M\,\alpha && :\equiv \mk_B\,(f^M\,\alpha)\\
-  & \unk_{\Pi\,a\,B}\,f^S\,\alpha  && :\equiv \unk_B\,(f^S\,\alpha) \\
-  & {\K\beta}_{\Pi\,a\,B}  && :\equiv {\K\beta}_B \\
-  & {\K\eta}_{\Pi\,a\,B}  && :\equiv {\K\eta}_B \\
-  & {\mk[]}_{\Pi\,a\,B}  && :\equiv {\mk[]}_B \\
-  & \Eq_{\Pi\,a\,B}\,f^{S0}\,f^{S1}\,\alpha^D  && : \Eq_B\,(f^{S0}\,\alpha)\,(f^{S1}\,\alpha) \\
-  & {\Eq[]}_{\Pi\,a\,B} && :\equiv {\Eq[]}_B \\
-  & \eqreflect_{\Pi\,a\,B}\,f^S && :\equiv \funext\,(\lambda\alpha.\,\eqreflect_B\,(f^S\,\alpha))
-\end{alignat*}
-}
 
 \end{document}
